@@ -1,9 +1,7 @@
 <?php
-// Paramètres de connexion MySQL
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'cinemanage_db');  
+// Paramètres de connexion à MySQL
+define('DB_HOST', 'CineManageSystem-db');
+define('DB_NAME', 'cinemanage_db');
 define('DB_USER', 'root');
-define('DB_PASS', '');               
-define('BASE_URL', 'http://localhost/cinemanage/');
-
-?>
+define('DB_PASS', 'root');
+define('BASE_URL', 'http://localhost/CineManageSystem/');
