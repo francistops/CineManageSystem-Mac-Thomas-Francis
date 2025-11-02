@@ -2,6 +2,12 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+if (!function_exists('mysqli_init') && !extension_loaded('mysqli')) {
+    echo 'We don\'t have mysqli!!!';
+} else {
+    echo 'mysqli is install but it is activate in the php.ini or is the db create?';
+}
+
 require_once 'includes/db_connect.php';
 include 'includes/header.php';
 
