@@ -16,7 +16,7 @@ Ce processus entraîne souvent :
 Afin d’améliorer ce service, le cinema tamh hair souhaite développer un système numérique d'
 ajout automatiques de films par API pour les employ/ et client.
 
-Ce site ou application devra permettre aux client de consulter la liste des films disponibles.
+Ce site ou application devra permettre aux client de consulter les horraires des films disponnible à l'affiche.
 
 Les employ/, devront pouvoir valider ou refuser les demandes d'ajout, et gérer leur statut de manière centralisée.
 
@@ -30,7 +30,7 @@ Les employ/, devront pouvoir valider ou refuser les demandes d'ajout, et gérer 
   • Améliorer la transparence et la satisfaction des client.
 
 2. Identification des utilisateurs
-  • Étudiant : cherche un logement, dépose une demande, suit l’avancement, effectue le paiement.
+  • Client : cherche un filtrate, dépose une demande, suit l’avancement, effectue le paiement.
   • Agent du service logement : valide ou refuse les dossiers, attribue les chambres, gère les paiements et les renouvellements.
   • Responsable de résidence : supervise les logements, signale les disponibilités et l’état des chambres.
 
