@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once '../includes/db_connect.php';
-include '../includes/header.php';
 
 // Activer les erreurs en développement (désactiver en production)
 error_reporting(E_ALL);
@@ -31,6 +30,8 @@ if (isset($_POST['login'])) {
         $error = "Veuillez remplir tous les champs.";
     }
 }
+
+include '../includes/header.php';
 ?>
 
 <div class="login-container">
