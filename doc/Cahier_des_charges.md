@@ -73,46 +73,23 @@ L’objectif principal est de simplifier ou développé ainsi qu’automatiser p
 ## Cloture du projet
 Le projet sera considéré terminé si toutes les fonctionnalités essentielles sont implémentées et validées (accès sécurisé des utilisateurs, réservation complète, interface de gestion opérationnelle) et si le système respecte les contraintes données (sécurité, performances, adaptation mobile).
 
-
 ---
 
-
-# User Stories
-* Consultation du détail d’un film. « En tant que client, je veux voir la fiche détaillée d’un film (affiche, synopsis, bande-annonce, horaires) afin de décider si je souhaite le voir. »
-
-* Filtrage de séances. « En tant que client, je veux filtrer les séances par date, genre ou horaire afin de trouver facilement une séance de mon film préféré. »
-* Compte utilisateur. « En tant que client, je veux m’inscrire et me connecter afin de réservé des siège »
-
-* Confirmation de réservation. « En tant que client, je veux recevoir un email de 
-confirmation après ma réservation afin de conserver mon billet électronique. »
-
-* Gestion des films (admin). « En tant qu’administrateur, je veux ajouter et modifier les films dans le catalogue afin de tenir à jour les nouveautés et corrigé les erreurs d’information. »
-
-* Gestion des séances (admin). « En tant qu’administrateur, je veux planifier les séances pour chaque film afin d’organiser la grille horaire du cinéma. »
-
-* Validation des réservations (admin). « En tant qu’administrateur, je veux visualiser la liste des réservations par séance afin de prévoir l'achalandage. »
-
-* Reporting (admin). « En tant qu’administrateur, je veux consulter des statistiques afin d’optimiser les films affichés. »
-
-
----
-
-
-# Analyse détailé des modules
-## Analyse des modules existants haut niveau
+## Analyse détailé des modules
+### Analyse des modules existants haut niveau
 L’analyse du code existant des modules :
 * Module affichage de films : affiche les film et leurs meta-données au public. 
 * Module authentification : Gère l’authentification, le login, gestion des sessions.
 * Module Films : Contient la logique pour la gestion des films avec CRUD
 
-### Analyse détailé des modules existants 
-#### Constatation générale
+#### Analyse détailé des modules existants 
+##### Constatation générale
 * le siteweb ne point vers le document root. Il utilise une constante BASE_URL "hard coded" ce qui dégrade le site si le nom du dossier est modifié.
 * Plusieurs fichiers PHP autonomes ferment le tag ?>, ce qui n’est pas une bonne pratique.
 * Les URL affichent l’extension du fichier (ex. .php).
 * Que se passe-t-il avec la session si l’utilisateur ne clique pas sur Déconnexion et revient sur Accueil ?
 
-### login.php et logout.php
+#### login.php et logout.php
 * Prévoir un flag d’environnement (production / développement).
 * Supprimer les commentaires inutiles. Comme appris par Olivier.
 * le mot de passe 
@@ -126,22 +103,22 @@ L’analyse du code existant des modules :
 * Faut-il vérifier si une session existe avant de la détruire ?
 * login.php ligne 21: le code et la DB ne valide pas si le nom existe deja donc si il y a plusieurs utilisateur avec le même nom_utilisateur leur mot de passe sont tous valide pour cette utilisateur.
 
-### db_connect.php
+#### db_connect.php
 * L’utilisation d’un bloc try/catch serait plus appropriée pour gérer les erreurs.
 * Si la base de données est mal configurée, aucune gestion d’erreur n’est faite.
 
-### index.php, header.php et footer.php
+#### index.php, header.php et footer.php
 * Serait-il préférable de créer une vue dédiée pour alléger le trafic et le traitement de la base de données, surtout pour la page d’accueil ?
 
-### config.php
+#### config.php
 * La constante BASE_URL est définie en dur, ce qui cause des problèmes si le nom du dossier change.
 * Aucun mot de passe défini pour la base de données.
 * Les variables sont en clair, accessibles si quelqu’un obtient l’accès au backend.
 
-### add_film.php
+#### add_film.php
 * Les données sont saisies manuellement uniquement, sans automatisation ni contrôle.
 
-### cinemanage_db.sql
+#### cinemanage_db.sql
 * La table administrateurs est très basique et ne permet pas d'assigner un jeton à l'utilisateur ou un délais de connection ou autre données.
 * la table films accepte tout les valeurs. aucune valeur prédefinis. Aussi, aucune validation niveau du code
 * Aucun lien entre les tables
@@ -152,7 +129,7 @@ L’analyse du code existant des modules :
 * Pas de contrainte UNIQUE sur les titres de films.
 * l'utilisateur admin est hard codé dans la DB
 
-## Limites potentielles du système actuel
+### Limites potentielles du système actuel
 Les points faibles probables sont :
 * Interfaces utilisateur (UI/UX) :
     * l’interface actuelle n’est pas responsive et l’expérience sur mobile sera dégradé
@@ -169,7 +146,7 @@ Les points faibles probables sont :
     * l’architecture actuelle n’emploie pas de chiffrement ou hashage pour les mots de passe. 
     * authentification simple sans autorisation.
 
-## Suggestions d’amélioration et modules supplémentaires
+### Suggestions d’amélioration et modules supplémentaires
 Pour répondre aux besoins, plusieurs améliorations sont requis :
 * Module affichage de films : ajout de filtrage et meta-données. 
 * Module authentification : mettre la sécurité a niveau.
