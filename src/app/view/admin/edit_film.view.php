@@ -1,27 +1,4 @@
-<?php
-session_start();
-if(!isset($_SESSION['admin'])) header('Location: login.php');
-
-require_once '../includes/db_connect.php';
-
-$id = intval($_GET['id']);
-$result = $conn->query("SELECT * FROM films WHERE id=$id");
-$film = $result->fetch_assoc();
-
-if(isset($_POST['update'])) {
-    $titre = $_POST['titre'];
-    $realisateur = $_POST['realisateur'];
-    $genre = $_POST['genre'];
-    $annee = intval($_POST['annee_sortie']);
-    $desc = $_POST['description'];
-
-    $conn->query("UPDATE films SET titre='$titre', realisateur='$realisateur', genre='$genre', annee_sortie='$annee', description='$desc' WHERE id=$id");
-    header('Location: dashboard.php');
-    exit;
-}
-
-include '../includes/header.php';
-?>
+<?php include '../includes/header.php'; ?>
 
 <h2>Modifier le film</h2>
 <form method="POST">

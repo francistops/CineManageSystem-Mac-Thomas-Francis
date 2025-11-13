@@ -1,14 +1,4 @@
-<?php
-session_start();
-if(!isset($_SESSION['admin'])) {
-    header('Location: login.php');
-    exit;
-}
-require_once '../includes/db_connect.php';
-include '../includes/header.php';
-
-$result = $conn->query("SELECT * FROM films ORDER BY id DESC");
-?>
+<?php include '../includes/header.php'; ?>
 
 <h2>Dashboard Admin</h2>
 <a href="add_film.php">Ajouter un film</a>

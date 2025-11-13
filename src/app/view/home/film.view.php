@@ -1,12 +1,9 @@
-<?php
-require_once 'includes/db_connect.php';
-include 'includes/header.php';
-
-$id = intval($_GET['id']);
-$result = $conn->query("SELECT * FROM films WHERE id=$id");
-
-if($film = $result->fetch_assoc()):
+<?php 
+// call get_film_by_id() in FilmController.php
 ?>
+
+<?php include 'includes/header.php'; ?>
+
 <h2><?php echo htmlspecialchars($film['titre']); ?></h2>
 <p><strong>Réalisateur :</strong> <?php echo htmlspecialchars($film['realisateur']); ?></p>
 <p><strong>Genre :</strong> <?php echo htmlspecialchars($film['genre']); ?></p>

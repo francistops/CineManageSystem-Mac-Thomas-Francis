@@ -3,8 +3,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require_once 'includes/db_connect.php';
-include 'includes/header.php';
 
+session_start();
+
+include 'includes/header.php';
 $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 ?>
 
