@@ -1,4 +1,5 @@
 # MVC du site Cinemanage
+
 ## Structure des fichiers et dossiers du site
 .
 ├── config.php
@@ -8,56 +9,53 @@
 │   ├── docker-compose.yml
 │   ├── Dockerfile
 │   └── nginx
-│       └── nginx.conf
+│   └── nginx.conf
 ├── LICENSE
 ├── public
 │   ├── assets
 │   │   ├── css
 │   │   │   └── style.css
 │   │   └── js
-│   │       └── script.js
+│   │   └── script.js
 │   └── index.php
 ├── README.md
 └── src
-    └── app
-        ├── controllerd
-        │   ├── FilmController.php
-        │   └── UserController.php
-        ├── helpers
-        │   └── db_connect.php
-        ├── middlewares
-        │   └── auth_gard.php
-        │   └── logger.php
-        ├── model
-        │   ├── FilmModel.php
-        │   └── UserModel.php
-        ├── routers
-        │   └── router.php
-        └── views
-            ├── admin
-            │   ├── add_film.view.php
-            │   ├── dashboard.view.php
-            │   ├── edit_film.view.php
-            │   └── login.view.php
-            ├── home
-            │   └── film.view.php
-            └── includes
-                ├── footer.php
-                └── header.php
+└── app
+├── controllerd
+│   ├── FilmController.php
+│   └── UserController.php
+├── helpersd
+│   └── db_connect.php
+├── middlewares
+│   └── auth_gard.php
+│ └── logger.php
+├── model
+│   ├── FilmModel.php
+│   └── UserModel.php
+├── routers
+│   └── router.php
+└── views
+├── admin
+│   ├── add_film.view.php
+│   ├── dashboard.view.php
+│   ├── edit_film.view.php
+│   └── login.view.php
+├── home
+│   └── film.view.php
+└── includes
+├── footer.php
+└── header.php
 
-## description des dossiers et fichiers 
+## Description des dossiers et fichiers
 
-config.php : définie les constante du site. Par exemple, les crédentials de la DB.
-./db : stocker la dump de la base de donné.
-./docker : stock les config de docker pour build le site sur docker
-./public : stock les fichiers et dossiers accessible ou visiteur et le point d'entré du site web.
-./src : stock le code des differentes fonction serveur du site.
-./src/app : stock les différente fonction propre a l'application web soit la logic business.
-./src/app/controllers : stocker le different controlleur requis pour controller les donnée au models
-./src/app/helpers : stock les fonctions aidant mais directement relier au besoin au besoin fonctionnelle de l'application
-./src/app/middlewares : stock les proxies. Exemple: une route qu'y necessite une authentification ou un surveillance.
-./src/app/routers : stock les route et orcheste celle-ci vers les bon controllers.
-.src/app/views : stocker le visuelle des page et est retourné a l'utilisateur avec ou sans donnée.
-
-
-
+**config.php** : Définit les constantes du site, par exemple les identifiants de connexion à la base de données.
+**./db** : Stocke les dumps de la ou des bases de données.
+**./docker** : Contient la configuration nécessaire pour construire le site avec Docker.
+**./public** : Contient les fichiers et dossiers accessibles aux visiteurs, ainsi que le point d'entrée du site web.
+**./src** : Contient le code des différentes fonctionnalités serveur du site.
+**./src/app** : Contient les différentes fonctionnalités propres à l’application web, c’est-à-dire la logique métier.
+**./src/app/controllers** : Contient les différents contrôleurs nécessaires pour gérer les données transmises aux modèles.
+**./src/app/helpers** : Contient les fonctions utilitaires liées aux besoins fonctionnels de l’application.
+**./src/app/middlewares** : Contient les fonctions intermédiaires (proxies). Exemple : une route nécessitant une authentification ou une vérification.
+**./src/app/routers** : Contient les routes et les oriente vers les bons contrôleurs.
+**./src/app/views** : Contient les vues des pages et renvoie l’affichage à l’utilisateur, avec ou sans données.
