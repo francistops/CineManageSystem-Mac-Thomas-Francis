@@ -1,0 +1,120 @@
+/* ---------------- BASE ------------------ */
+body {
+    margin: 0;
+    background: #0d0d0d;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* ---------------- NAVBAR ------------------ */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #141414;
+    padding: 15px 40px;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #e50914;
+}
+
+.menu a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.menu a:hover {
+    opacity: 1;
+}
+
+.subscribe-btn {
+    background: #e50914;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.subscribe-btn:hover {
+    background: #b30810;
+}
+
+/* ---------------- CARROUSEL ------------------ */
+.carousel {
+    height: 300px;
+    background: #222;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+}
+
+.slide {
+    flex: 1;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    background: #333;
+}
+
+.slide.active {
+    display: flex;
+}
+
+/* ---------------- SECTIONS ------------------ */
+.section {
+    margin: 30px 20px;
+}
+
+.section h2 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.thumb {
+    background: #444;
+    height: 150px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.thumb:hover {
+    background: #555;
+}
+
+/* ---------------- RESPONSIVE ------------------ */
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .thumbs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .carousel {
+        height: 180px;
+    }
+}
+
+@media (max-width: 450px) {
+    .thumbs {
+        grid-template-columns: 1fr;
+    }
+}
