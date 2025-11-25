@@ -1,6 +1,5 @@
 <?php
 
-echo __DIR__ . "\n";
 require_once(__DIR__ . '/../controller.php');
 require_once(__DIR__ . '/../models/MenuModel.php');
 
