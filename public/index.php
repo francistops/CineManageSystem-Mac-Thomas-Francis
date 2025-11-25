@@ -41,10 +41,9 @@ else{
     $controller->handle($_GET);
 } 
 
-//require_once 'includes/db_connect.php';
-//session_start();
+session_start();
 include '/../src/app/views/partials/header.php';
-//$result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
+$result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 ?>
 
 <h1>start file<h1>
