@@ -42,12 +42,12 @@ else{
 
 //require_once 'includes/db_connect.php';
 //session_start();
-//include 'includes/header.php';
+include '/../src/app/views/partials/header.php';
 //$result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 ?>
 
 <h1>start file<h1>
-<!-- <h2>Liste des films</h2>
+<h2>Liste des films</h2>
 <ul>
 <?php while($film = $result->fetch_assoc()): ?>
     <li>
@@ -56,7 +56,7 @@ else{
         </a>
     </li>
 <?php endwhile; ?>
-</ul> -->
+</ul> 
 
 <?php include '/../src/app/views/partials/footer.php'; ?>
 
