@@ -1,4 +1,4 @@
-<?php require_once '/..src/app/views/partials/header.php'; ?>
+<?php require_once '/../src/app/views/partials/header.php'; ?>
 <?php HTMLHeader('Erreur 404 Page introuvable');?>
 
 
