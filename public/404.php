@@ -1,10 +1,5 @@
 <?php require_once(__DIR__ . '/../src/app/views/partials/header.php'); ?>
 
-<!-- not working -->
-<!-- <?php HTMLHeader('Erreur 404 Page introuvable');?> -->
-
-
-
 <div class="contain style-dark">
        <span style="font-size:75px;">404</span>
     <h1>Page introuvable</h1>
