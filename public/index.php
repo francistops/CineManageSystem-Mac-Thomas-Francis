@@ -40,8 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 else{
     $controller->handle($_GET);
 } 
-
+ob_end_flush();
 session_start();
+
+echo '<!-- Session Data: ' . print_r($_SESSION, true) . ' -->';
 include '/../src/app/views/partials/header.php';
 $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 ?>
@@ -58,5 +60,3 @@ $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 </ul> 
 
 <?php include '/../src/app/views/partials/footer.php'; ?>
-
-<?php ob_end_flush(); ?>
