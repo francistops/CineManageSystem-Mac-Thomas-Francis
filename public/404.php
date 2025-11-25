@@ -1,5 +1,7 @@
 <?php require_once(__DIR__ . '/../src/app/views/partials/header.php'); ?>
-<?php HTMLHeader('Erreur 404 Page introuvable');?>
+
+<!-- not working -->
+<!-- <?php HTMLHeader('Erreur 404 Page introuvable');?> -->
 
 
 
