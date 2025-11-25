@@ -2,15 +2,52 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'includes/db_connect.php';
+require_once('../src/app/helper/db_connect.php');
+require_once('../src/app/controllers/Users.php'); 
+require_once('../src/app/controllers/Films.php');  
 
-session_start();
+$action = $_GET['action'] ?? 'page';
 
-include 'includes/header.php';
-$result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
+switch ($action) {
+    case 'films':
+        $controller = new Films($db);
+       break;
+    case 'user':
+        $controller = new Users($db);
+        break;
+    case 'login':
+    case 'create_account':
+    case 'delete_user':
+    case 'dashboard':
+    case 'my_account':
+    case 'logout':
+        $controller = new auth_controller($db);
+         break;
+    default:
+         http_response_code(404);
+        require '404.php';
+        exit;
+}
+
+if (!$controller) {
+    die("Contrôleur non trouvé pour l'action : " . htmlspecialchars($action));
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $controller->handlePost($_GET, $_POST);
+}
+else{
+    $controller->handle($_GET);
+} 
+
+//require_once 'includes/db_connect.php';
+//session_start();
+//include 'includes/header.php';
+//$result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 ?>
 
-<h2>Liste des films</h2>
+<h1>start file<h1>
+<!-- <h2>Liste des films</h2>
 <ul>
 <?php while($film = $result->fetch_assoc()): ?>
     <li>
@@ -19,6 +56,8 @@ $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
         </a>
     </li>
 <?php endwhile; ?>
-</ul>
+</ul> -->
 
 <?php include 'includes/footer.php'; ?>
+
+<h1>end file<h1>
