@@ -1,4 +1,4 @@
-<?php require_once '/../src/app/views/partials/header.php'; ?>
+<?php require_once(__DIR__ . '/../src/app/views/partials/header.php'); ?>
 <?php HTMLHeader('Erreur 404 Page introuvable');?>
 
 
@@ -11,4 +11,4 @@
        
 </div>
 
-<?php require_once '/../src/app/views/partials/footer.php'; ?>
+<?php require_once (__DIR__ . '/../src/app/views/partials/footer.php'); ?>
