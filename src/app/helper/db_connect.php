@@ -1,5 +1,4 @@
 <?php
-echo __DIR__ . "\n";
 require_once __DIR__ . '/../../../config.php';
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
