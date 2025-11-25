@@ -38,5 +38,5 @@ function logout(string $user) : boolean {
 }
 
 function delete($username) : boolean {
-    return 'ran delete'
+    return 'ran delete';
 }
