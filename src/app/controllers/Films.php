@@ -63,7 +63,7 @@ public function get_film_by_id() : array {
     
     return 'ran edit_film';
 }
- function remove_film() : boolean {
+ function remove_film() : bool {
     $id = intval($_GET['id']);
 
     // some security check
