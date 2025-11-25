@@ -1,10 +1,10 @@
 <?php
 
-function register(array $userObj) : boolean {
+function register(array $userObj) : bool {
     return 'ran register';
 }
 
-function login(string $username, string $password) : boolean {
+function login(string $username, string $password) : bool {
 session_start();
 if (isset($_POST['login'])) {
     $user = trim($_POST['username']);
@@ -28,7 +28,7 @@ if (isset($_POST['login'])) {
     return 'ran login';
 }
 
-function logout(string $user) : boolean {
+function logout(string $user) : bool {
     session_start();
     session_destroy();
     header('Location: login.php');
@@ -37,6 +37,6 @@ function logout(string $user) : boolean {
     return 'ran logout';
 }
 
-function delete($username) : boolean {
+function delete($username) : bool {
     return 'ran delete';
 }
