@@ -1,17 +1,37 @@
 <?php
 
-function get_films() : array {
+require_once(__DIR__ . '/../controller.php');
+require_once(__DIR__ . '/../models/MenuModel.php');
+
+class ProductListController {
+    private $menuModel;
+
+    public function __construct($db) {
+        $this->menuModel = new MenuModel($db);
+    }
+
+    public function handle($get) {
+        $products = $this->menuModel->getAll();
+        session_start();
+        if (!isset($_SESSION['id_user']) || $_SESSION['role'] !== 'admin') {
+            header("Location: ?action=login");
+            exit;
+        }
+
+        include(__DIR__ . '/../views/list_products.php');
+    }
+
+public function get_films() : array {
     read_films();
     return 'ran get_films';
 }
 
-function get_film_by_id() : array {
+public function get_film_by_id() : array {
     $id = intval($_GET['id']);
     read_film_by_id($id);
     return 'ran get_film_by_id';
 }
-
-function add_film(array $data) : filmObj {
+ function add_film(array $data) : filmObj {
     if(isset($_POST['add'])) {
         $titre = $_POST['titre'];
         $realisateur = $_POST['realisateur'];
@@ -27,8 +47,7 @@ function add_film(array $data) : filmObj {
 
     return 'ran add_film';    
 }
-
-function edit_film(array $data) : filmObj {
+ function edit_film(array $data) : filmObj {
     if(isset($_POST['update'])) {
         $titre = $_POST['titre'];
         $realisateur = $_POST['realisateur'];
@@ -44,8 +63,7 @@ function edit_film(array $data) : filmObj {
     
     return 'ran edit_film';
 }
-
-function remove_film() : boolean {
+ function remove_film() : boolean {
     $id = intval($_GET['id']);
 
     // some security check
@@ -54,4 +72,5 @@ function remove_film() : boolean {
     header('Location: dashboard.php');
     exit;
 
+}
 }
