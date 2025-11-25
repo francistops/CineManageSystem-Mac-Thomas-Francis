@@ -2,8 +2,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-var_dump($_SERVER['REQUEST_URI']);
-var_dump(__DIR__);
 require_once('../src/app/helper/db_connect.php');
 require_once('../src/app/controllers/Users.php'); 
 require_once('../src/app/controllers/Films.php');  
@@ -60,6 +58,6 @@ else{
 <?php endwhile; ?>
 </ul> -->
 
-<?php include 'includes/footer.php'; ?>
+<?php include '/../src/app/views/partials/footer.php'; ?>
 
 <h1>end file<h1>
