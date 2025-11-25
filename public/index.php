@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ob_start();
 
 require_once('../src/app/helper/db_connect.php');
 require_once('../src/app/controllers/Users.php'); 
@@ -60,4 +61,4 @@ include '/../src/app/views/partials/header.php';
 
 <?php include '/../src/app/views/partials/footer.php'; ?>
 
-<h1>end file<h1>
+<?php ob_end_flush(); ?>
