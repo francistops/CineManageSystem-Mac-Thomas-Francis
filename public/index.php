@@ -2,7 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-echo "<h1>$__DIR__<h1>";
+var_dump($_SERVER['REQUEST_URI']);
+var_dump(__DIR__);
 require_once('../src/app/helper/db_connect.php');
 require_once('../src/app/controllers/Users.php'); 
 require_once('../src/app/controllers/Films.php');  
