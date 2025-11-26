@@ -1,7 +1,6 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-ob_start();
 
 require_once('../src/app/helper/db_connect.php');
 require_once('../src/app/controllers/Users.php'); 
@@ -32,16 +31,6 @@ switch ($action) {
         exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $controller->handlePost($_GET, $_POST);
-}
-else{
-    $controller->handle($_GET);
-} 
-ob_end_flush();
-session_start();
-
-echo '<!-- Session Data: ' . print_r($_SESSION, true) . ' -->';
 include '/../src/app/views/partials/header.php';
 $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 ?>
