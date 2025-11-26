@@ -23,7 +23,7 @@ switch ($action) {
     case 'dashboard':
     case 'my_account':
     case 'logout':
-        require_once(__DIR__ . '/../src/app/views/login.view.php');
+        require_once(__DIR__ . '/../src/app/views/admin/login.view.php');
         break;
     default:
          http_response_code(404);

@@ -1,4 +1,4 @@
-<?php include '../includes/header.php'; ?>
+<?php require_once(__DIR__ . '/../src/app/views/partials/header.php');?>
 
 <div class="login-container">
     <h2>Connexion Administrateur</h2>
@@ -18,4 +18,4 @@
     </form>
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php require_once(__DIR__ . '/../src/app/views/partials/footer.php');?>
