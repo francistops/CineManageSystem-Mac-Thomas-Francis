@@ -1,4 +1,4 @@
-<?php require_once(__DIR__ . '/../src/app/views/partials/header.php');?>
+<?php require_once(__DIR__ . '/../partials/header.php');?>
 
 <div class="login-container">
     <h2>Connexion Administrateur</h2>
@@ -18,4 +18,4 @@
     </form>
 </div>
 
-<?php require_once(__DIR__ . '/../src/app/views/partials/footer.php');?>
+<?php require_once(__DIR__ . '/../partials/footer.php');?>
