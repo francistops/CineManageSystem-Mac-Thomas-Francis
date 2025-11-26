@@ -23,8 +23,8 @@ switch ($action) {
     case 'dashboard':
     case 'my_account':
     case 'logout':
-        $controller = new auth_controller($db);
-         break;
+        require_once(__DIR__ . '/../src/app/views/login.view.php');
+        break;
     default:
          http_response_code(404);
         require '404.php';
