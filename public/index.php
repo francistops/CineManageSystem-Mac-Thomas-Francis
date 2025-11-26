@@ -10,6 +10,8 @@ require_once('../src/app/controllers/Films.php');
 $action = $_GET['action'] ?? 'page';
 
 switch ($action) {
+    case 'page':
+        break;
     case 'films':
         $controller = new Films($db);
        break;
