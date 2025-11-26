@@ -24,7 +24,7 @@ switch ($action) {
     case 'my_account':
     case 'logout':
         require_once(__DIR__ . '/../src/app/views/admin/login.view.php');
-        break;
+        exit;
     default:
          http_response_code(404);
         require '404.php';
