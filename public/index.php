@@ -31,7 +31,7 @@ switch ($action) {
         exit;
 }
 
-include '/../src/app/views/partials/header.php';
+require_once(__DIR__ . '/../src/app/views/partials/header.php');
 $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 ?>
 
@@ -46,4 +46,4 @@ $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 <?php endwhile; ?>
 </ul> 
 
-<?php include '/../src/app/views/partials/footer.php'; ?>
+<?php require_once (__DIR__ . '/../src/app/views/partials/footer.php'); ?>
