@@ -32,10 +32,6 @@ switch ($action) {
         exit;
 }
 
-if (!$controller) {
-    die("Contrôleur non trouvé pour l'action : " . htmlspecialchars($action));
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $controller->handlePost($_GET, $_POST);
 }
