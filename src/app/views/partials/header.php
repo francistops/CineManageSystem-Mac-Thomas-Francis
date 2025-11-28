@@ -13,7 +13,7 @@
     <h1>CinéManage</h1>
     <nav>
         <a href="<?php echo BASE_URL; ?>index.php">Accueil</a> |
-        <a href="<?php echo BASE_URL; ?>admin/login.php">Admin</a>
+        <a href="<?php echo BASE_URL; ?>index.php?action=login">Login</a>
     </nav>
 </header>
 <hr>
