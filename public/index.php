@@ -44,7 +44,7 @@ $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 <ul>
 <?php while($film = $result->fetch_assoc()): ?>
     <li>
-        <a href="film.php?id=<?php echo $film['id']; ?>">
+        <a href= "<?= VIEWS_PATH . '/home/film.view.php?id=$film["id"];' ?>">
             <?php echo htmlspecialchars($film['titre']); ?> (<?php echo $film['annee_sortie']; ?>)
         </a>
     </li>
