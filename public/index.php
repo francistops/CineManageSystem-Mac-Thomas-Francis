@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require_once(__DIR__ . '/../config.php');
+require_once(APP_PATH . '/helper/utils.php');  
 
 require_once(APP_PATH . '/helper/db_connect.php');
 require_once(APP_PATH . '/controllers/Users.php'); 
@@ -22,19 +23,9 @@ switch ($action) {
         require_once(VIEWS_PATH . '/admin/profil.php');
         break;
     case 'login':
-    case 'create_account':
-    case 'delete_user':
     case 'dashboard':
-    case 'my_account':
     case 'logout':
-        if (!isset($_SESSION['login'])) {
-            $_SESSION['login'] = false;
-            break;
-        }
-        if ($_SESSION['login'] === true)
-            require_once(VIEWS_PATH . '/admin/dashboard.view.php');
-        else
-            require_once(VIEWS_PATH . '/admin/login.view.php');
+        redirect("admin.php?action=$action");
         exit;
     default:
          http_response_code(404);
@@ -42,7 +33,7 @@ switch ($action) {
         exit;
 }
 
-require_once(VIEWS_PATH . '/partials/header.php');
+include_once(VIEWS_PATH . '/partials/header.php');
 $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 ?>
 
@@ -57,4 +48,5 @@ $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 <?php endwhile; ?>
 </ul>
 
-<?php require_once (VIEWS_PATH . '/partials/footer.php'); ?>
+<?php include_once (VIEWS_PATH . '/partials/footer.php'); ?>
+

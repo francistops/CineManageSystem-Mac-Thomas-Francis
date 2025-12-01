@@ -8,6 +8,12 @@
 <?php require_once (VIEWS_PATH . '/partials/header.php');  ?>
 
 <?php
+if (!isset($_GET['id'])) {
+    echo "<p>ID de film manquant.</p>";
+    require_once (VIEWS_PATH . '/partials/footer.php');
+    exit;
+}
+
 $id = intval($_GET['id']);
 $result = $conn->query("SELECT * FROM films WHERE id=$id");
 
