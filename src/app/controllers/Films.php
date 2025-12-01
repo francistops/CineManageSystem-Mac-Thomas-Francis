@@ -74,3 +74,17 @@ public function get_film_by_id() : array {
 
 }
 }
+
+// Livre Controller functions from template
+require_once MODELS_PATH . '/../models/FilmModel.php';
+
+
+function listLivres() {
+    $livres = getAllLivres();
+    include VIEW_DIR . '/../views/films/index.php';
+}
+
+function viewLivre($id) {
+    $livre = getLivreById($id);
+    include VIEW_DIR . '/../views/films/view.php';
+}

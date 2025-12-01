@@ -1,5 +1,5 @@
 <?php
-$protocol = isset($_SERVER['HTTPS']) && 
+$protocol = isset($_SERVER['HTTPS']) &&
 $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
 $base_url = $protocol . $_SERVER['HTTP_HOST'] . '/';
 
@@ -10,6 +10,7 @@ define('DB_USER', 'root');
 define('DB_PASS', 'root');
 define('BASE_URL', "$base_url");
 
-define('MODELS_PATH', __DIR__ . '/src/app/models/');
-define('CONTROLLERS_PATH', __DIR__ . '/src/app/controllers/');
-define('VIEWS_PATH', __DIR__ . '/src/app/views/');
+define('APP_PATH', __DIR__ . '/src/app');
+define('MODELS_PATH', __DIR__ . '/src/app/models');
+define('CONTROLLERS_PATH', __DIR__ . '/src/app/controllers');
+define('VIEWS_PATH', __DIR__ . '/src/app/views');

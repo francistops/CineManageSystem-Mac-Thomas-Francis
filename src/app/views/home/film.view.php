@@ -2,12 +2,18 @@
 // call get_film_by_id() in FilmController.php
 ?>
 
-<?php require_once (__DIR__ . '/../config.php');  ?>
+<?php require_once (__DIR__ . '/../../../../config.php');  ?>
 <?php require_once (APP_PATH . '/helper/db_connect.php');  ?>
 
 <?php require_once (VIEWS_PATH . '/partials/header.php');  ?>
 
 <?php
+if (!isset($_GET['id'])) {
+    echo "<p>ID de film manquant.</p>";
+    require_once (VIEWS_PATH . '/partials/footer.php');
+    exit;
+}
+
 $id = intval($_GET['id']);
 $result = $conn->query("SELECT * FROM films WHERE id=$id");
 
