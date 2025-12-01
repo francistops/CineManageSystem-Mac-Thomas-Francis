@@ -4,9 +4,9 @@ ini_set('display_errors', 1);
 
 require_once(__DIR__ . '/../config.php');
 
-require_once(__DIR__ . '/../src/app/helper/db_connect.php');
-require_once(__DIR__ . '/../src/app/controllers/Users.php'); 
-require_once(__DIR__ . '/../src/app/controllers/Films.php');  
+require_once(APP_PATH . '/helper/db_connect.php');
+require_once(APP_PATH . '/controllers/Users.php'); 
+require_once(APP_PATH . '/controllers/Films.php');  
 
 $action = $_GET['action'] ?? 'page';
 
@@ -44,7 +44,7 @@ $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 <ul>
 <?php while($film = $result->fetch_assoc()): ?>
     <li>
-        <a href= "<?= VIEWS_PATH . '/home/film.view.php?id=$film["id"];' ?>">
+        <a href= "<?= VIEWS_PATH ?>/home/film.view.php?id=<?= $film['id'] ?>">
             <?php echo htmlspecialchars($film['titre']); ?> (<?php echo $film['annee_sortie']; ?>)
         </a>
     </li>
