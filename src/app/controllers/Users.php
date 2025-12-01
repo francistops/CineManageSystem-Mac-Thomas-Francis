@@ -50,7 +50,7 @@ require_once MODELS_PATH . '/../models/FilmModel.php';
 require_once APP_PATH . '/helper/utils.php';
 
 function adminLogin() {
-    ob_start();
+    
     $message = "";
     if (isset($_POST['login'])) {
         $user = $_POST['username'];
@@ -68,7 +68,6 @@ function adminLogin() {
         }
     }
     include VIEWS_PATH . '/admin/login.view.php';
-    ob_end_flush();
 }
 
 function adminLogout() {
