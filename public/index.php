@@ -8,6 +8,8 @@ require_once(APP_PATH . '/helper/db_connect.php');
 require_once(APP_PATH . '/controllers/Users.php'); 
 require_once(APP_PATH . '/controllers/Films.php');  
 
+session_start();
+
 $action = $_GET['action'] ?? 'page';
 
 switch ($action) {
@@ -15,7 +17,7 @@ switch ($action) {
         break;
     case 'films':
         require_once(VIEWS_PATH . '/home/film.view.php');
-        break;
+        exit;
     case 'user':
         require_once(VIEWS_PATH . '/admin/profil.php');
         break;
@@ -25,6 +27,10 @@ switch ($action) {
     case 'dashboard':
     case 'my_account':
     case 'logout':
+        if (!isset($_SESSION['login'])) {
+            $_SESSION['login'] = false;
+            break;
+        }
         if ($_SESSION['login'] === true)
             require_once(VIEWS_PATH . '/admin/dashboard.view.php');
         else
@@ -44,8 +50,8 @@ $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
 <ul>
 <?php while($film = $result->fetch_assoc()): ?>
     <li>
-        <a href= "<?= VIEWS_PATH ?>/home/film.view.php?id=<?= $film['id'] ?>">
-            <?php echo htmlspecialchars($film['titre']); ?> (<?php echo $film['annee_sortie']; ?>)
+        <a href="<?php echo htmlspecialchars('index.php?action=films&id=' . $film['id']); ?>">
+            <?php echo htmlspecialchars($film['titre']) . ' (' . htmlspecialchars($film['annee_sortie']) . ')'; ?>
         </a>
     </li>
 <?php endwhile; ?>
