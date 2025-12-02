@@ -25,7 +25,8 @@ $films = get_films();
                 <td><?= htmlspecialchars($film['id']) ?></td>
                 <td><?= htmlspecialchars($film['titre']) ?></td>
                 <td>
-                     <a href="delete_film.php?id=<?php echo $film['id']; ?>" onclick="return confirm('Supprimer ?')">Supprimer</a>
+                    <a href="edit_film.php?id=<?php echo $film['id']; ?>">Modifier</a> |
+                    <a href="delete_film.php?id=<?php echo $film['id']; ?>" onclick="return confirm('Supprimer ?')">Supprimer</a>
                 </td>
             </tr>
         <?php endforeach; ?>
