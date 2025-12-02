@@ -13,4 +13,4 @@ require_once APP_PATH . '/controllers/Films.php';
     <button type="submit" name="add" onclick="add_film()"> Ajouter</a></button>
 </form>
 
-<?php include_once (VIEWS_PATH . '/partials/footer.php'); ?>
+<?php include_once(VIEWS_PATH . '/partials/footer.php'); ?>

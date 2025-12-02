@@ -19,22 +19,22 @@ $films = get_films();
         </tr>
     </thead>
     <tbody>
-    <?php if (!empty($films)): ?>
-        <?php foreach ($films as $film): ?>
+        <?php if (!empty($films)): ?>
+            <?php foreach ($films as $film): ?>
+                <tr>
+                    <td><?= htmlspecialchars($film['id']) ?></td>
+                    <td><?= htmlspecialchars($film['titre']) ?></td>
+                    <td>
+                        <a href="admin.php?action=edit&id=<?php echo $film['id']; ?>">Modifier</a> |
+                        <a href="admin.php?action=delete&id=<?php echo $film['id']; ?>" onclick="return confirm('Supprimer ?')">Supprimer</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php else: ?>
             <tr>
-                <td><?= htmlspecialchars($film['id']) ?></td>
-                <td><?= htmlspecialchars($film['titre']) ?></td>
-                <td>
-                    <a href="admin.php?action=edit&id=<?php echo $film['id']; ?>">Modifier</a> |
-                    <a href="admin.php?action=delete&id=<?php echo $film['id']; ?>" onclick="return confirm('Supprimer ?')">Supprimer</a>
-                </td>
+                <td colspan="3">Aucun film trouvé.</td>
             </tr>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <tr>
-            <td colspan="3">Aucun film trouvé.</td>
-        </tr>
-    <?php endif; ?>
+        <?php endif; ?>
     </tbody>
 </table>
 

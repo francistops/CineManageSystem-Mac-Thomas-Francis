@@ -1,4 +1,0 @@
-RewriteEngine on
-
-RewriteRule ^api api.php [L]
-RewriteRule ^api/(.+)$ api.php [L]

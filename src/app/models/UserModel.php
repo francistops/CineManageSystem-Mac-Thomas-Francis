@@ -12,7 +12,7 @@ function checkAdmin(string $username, string $password): bool
 
     $stmt = $conn->prepare($sql);
     if (!$stmt) {
-        
+
         die("Erreur de préparation de la requête : " . $conn->error);
     }
 
@@ -23,7 +23,7 @@ function checkAdmin(string $username, string $password): bool
     $stmt->close();
 
     if (!$admin) {
-      
+
         return false;
     }
 
