@@ -6,7 +6,6 @@ require_once(__DIR__ . '/../config.php');
 require_once(APP_PATH . '/helper/utils.php');
 
 require_once(APP_PATH . '/helper/db_connect.php');
-require_once(APP_PATH . '/controllers/Users.php');
 require_once(APP_PATH . '/controllers/Films.php');
 
 session_start();
