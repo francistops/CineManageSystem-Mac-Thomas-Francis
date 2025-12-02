@@ -1,9 +1,10 @@
 <?php
 require_once APP_PATH . '/helper/db_connect.php';
 
-function read_films() : array {
-    $result = $conn->query("SELECT * FROM films ORDER BY id DESC");
-    return 'ran read_film';
+function read_films() {
+    $conn = getDBConnection();
+    $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
+    return $result;
 }
 
 function read_film_by_id(int $id): filmObj {

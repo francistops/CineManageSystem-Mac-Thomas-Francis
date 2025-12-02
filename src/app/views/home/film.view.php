@@ -8,6 +8,7 @@
 <?php require_once (VIEWS_PATH . '/partials/header.php');  ?>
 
 <?php
+$conn = getDBConnection();
 if (!isset($_GET['id'])) {
     echo "<p>ID de film manquant.</p>";
     require_once (VIEWS_PATH . '/partials/footer.php');
