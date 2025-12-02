@@ -10,8 +10,7 @@ require_once APP_PATH . '/controllers/Films.php';
     <label>Genre: <input type="text" name="genre" required></label><br>
     <label>Année: <input type="number" name="annee_sortie" required></label><br>
     <label>Description:<br><textarea name="description" required></textarea></label><br>
-    <button type="submit" name="add" onclick="add_film()"> Ajouter</a>
-    </button>
+    <button type="submit" name="add" onclick="add_film()"> Ajouter</a></button>
 </form>
 
 <?php include_once (VIEWS_PATH . '/partials/footer.php'); ?>

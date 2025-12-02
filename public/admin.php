@@ -29,11 +29,11 @@ switch ($action) {
         break;
 
     case 'edit':
-        edit_film($id);
+        edit_film();
         break;
 
     case 'delete':
-        delete_film($id);
+        remove_film();
         break;
 
     default:

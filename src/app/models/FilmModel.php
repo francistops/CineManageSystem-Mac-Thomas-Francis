@@ -31,14 +31,14 @@ function insert_film($titre, $realisateur, $genre, $annee, $desc) {
     return true;
 }
 
-function update_film(int $id) : bool {
+function update_film($id, $titre, $realisateur, $genre, $annee, $desc) : bool {
     $conn = getDBConnection();
     // add error checking later
     $conn->query("UPDATE films 
                     SET titre='$titre',
                         realisateur='$realisateur',
                         genre='$genre',
-                        annee_sortie='$annee',
+                        annee_sortie=$annee,
                         description='$desc'
                     WHERE id=$id");
     return true;
@@ -47,7 +47,6 @@ function update_film(int $id) : bool {
 function delete_film(int $id) {
     $conn = getDBConnection();
     // add error checking later
-    $id = intval($id);
     $conn->query("DELETE FROM films WHERE id=$id");
     return true;
 }

@@ -15,6 +15,7 @@ function get_film_by_id() {
 }
 
  function add_film(){
+    // check for out of range inputs eg: date
     if(isset($_POST['add'])) {
         $titre = $_POST['titre'];
         $realisateur = $_POST['realisateur'];
@@ -33,33 +34,34 @@ function get_film_by_id() {
     header('Location: admin.php?action=dashboard');
     exit;
 
-    return 'ran add_film';    
+    return true;    
 }
- function edit_film(array $data){
-    if(isset($_POST['update'])) {
+ function edit_film(){
+    $id = intval($_GET['id']);
+    if(isset($_POST['update']) && isset($_GET['id'])) {
         $titre = $_POST['titre'];
         $realisateur = $_POST['realisateur'];
         $genre = $_POST['genre'];
         $annee = intval($_POST['annee_sortie']);
         $desc = $_POST['description'];
+
+        update_film($id, $titre, $realisateur, $genre, $annee, $desc);
+    } else {
+        include VIEWS_PATH . '/admin/edit_film.view.php';
+        exit;
     }
     
-    // call update_film();
-    // if sucess run below
-    header('Location: dashboard.php');
+    header('Location: admin.php?action=dashboard');
     exit;
     
-    return 'ran edit_film';
+    return true;
 }
  function remove_film() : bool {
     $id = intval($_GET['id']);
-
+    delete_film($id); 
     // some security check
-    // call delete_film($id);
-    // if sucess run below
-    header('Location: dashboard.php');
+    header('Location: admin.php?action=dashboard');
     exit;
-
 }
 
 
