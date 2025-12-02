@@ -4,7 +4,7 @@ require_once (CONTROLLERS_PATH . '/Films.php');
 require_once (VIEWS_PATH . '/partials/header.php');
 $film = get_film_by_id();
 
-if($film = $result->fetch_assoc()):
+if(!empty($film)):
 ?>
 <h2><?php echo htmlspecialchars($film['titre']); ?></h2>
 <p><strong>Réalisateur :</strong> <?php echo htmlspecialchars($film['realisateur']); ?></p>

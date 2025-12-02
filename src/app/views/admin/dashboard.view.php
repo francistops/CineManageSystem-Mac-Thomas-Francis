@@ -1,18 +1,14 @@
 <?php
 include __DIR__ . '/../partials/header.php';
+require_once(CONTROLLERS_PATH . '/Films.php');
+
+$films = get_films();
 ?>
 
 <h1>Dashboard Admin</h1>
-
 <p>Bonjour, <?= htmlspecialchars($_SESSION['admin_username'] ?? '') ?></p>
-
-<p>
-    <a href="admin.php?action=logout">Se déconnecter</a>
-</p>
-
-<p>
-    <a href="#">Ajouter un film</a>
-</p>
+<p><a href="admin.php?action=logout">Se déconnecter</a></p>
+<p><a href="#">Ajouter un film</a></p>
 
 <table class="table">
     <thead>
