@@ -1,21 +1,32 @@
-<?php require_once(__DIR__ . '/../partials/header.php');?>
+<?php
+include __DIR__ . '/../partials/header.php';
+?>
 
-<div class="login-container">
-    <h2>Connexion Administrateur</h2>
+<h1>Connexion Administrateur</h1>
 
-    <?php if (isset($error)): ?>
-        <p class="error-message"><?php echo htmlspecialchars($message); ?></p>
+<form method="POST" action="admin.php?action=login">
+    <div>
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username">
+    </div>
+
+    <div>
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password">
+    </div>
+
+    <?php if (!empty($GLOBALS['login_errors'])): ?>
+        <ul class="text-danger">
+            <?php foreach ($GLOBALS['login_errors'] as $error): ?>
+                <li><?= htmlspecialchars($error) ?></li>
+            <?php endforeach; ?>
+        </ul>
     <?php endif; ?>
 
-    <form method="POST" class="login-form">
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="username" required>
+    <button type="submit">Se connecter</button>
+</form>
 
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="password" required>
+<?php
 
-        <button type="submit" name="login">Se connecter</button>
-    </form>
-</div>
-
-<?php require_once(__DIR__ . '/../partials/footer.php');?>
+include __DIR__ . '/../partials/footer.php';
+?>
