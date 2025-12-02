@@ -23,9 +23,9 @@ switch ($action) {
     case 'dashboard':
         dashboard();
         break;
-    
-    case 'add': 
-        add_film(); 
+
+    case 'add':
+        add_film();
         break;
 
     case 'edit':

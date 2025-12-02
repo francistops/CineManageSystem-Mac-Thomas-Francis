@@ -14,4 +14,4 @@ $film = get_film_by_id();
     <button type="submit" name="update">Modifier</button>
 </form>
 
-<?php include_once (VIEWS_PATH . '/partials/footer.php'); ?>
+<?php include_once(VIEWS_PATH . '/partials/footer.php'); ?>

@@ -1,19 +1,21 @@
 <?php
 require_once APP_PATH . '/helper/db_connect.php';
 
-function read_films() {
+function read_films()
+{
     $conn = getDBConnection();
     $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
     return $result;
 }
 
-function read_film_by_id(int $id) {
+function read_film_by_id(int $id)
+{
     $conn = getDBConnection();
-    
+
     if (!isset($_GET['id'])) {
-    echo "<p>ID de film manquant.</p>";
-    require_once (VIEWS_PATH . '/partials/footer.php');
-    exit;
+        echo "<p>ID de film manquant.</p>";
+        require_once(VIEWS_PATH . '/partials/footer.php');
+        exit;
     }
 
     $id = intval($_GET['id']);
@@ -23,7 +25,8 @@ function read_film_by_id(int $id) {
     return $film;
 }
 
-function insert_film($titre, $realisateur, $genre, $annee, $desc) {
+function insert_film($titre, $realisateur, $genre, $annee, $desc)
+{
     $conn = getDBConnection();
     // add error checking later
     $conn->query("INSERT INTO films (titre,realisateur,genre,annee_sortie,description) 
@@ -31,7 +34,8 @@ function insert_film($titre, $realisateur, $genre, $annee, $desc) {
     return true;
 }
 
-function update_film($id, $titre, $realisateur, $genre, $annee, $desc) : bool {
+function update_film($id, $titre, $realisateur, $genre, $annee, $desc): bool
+{
     $conn = getDBConnection();
     // add error checking later
     $conn->query("UPDATE films 
@@ -44,27 +48,10 @@ function update_film($id, $titre, $realisateur, $genre, $annee, $desc) : bool {
     return true;
 }
 
-function delete_film(int $id) {
+function delete_film(int $id)
+{
     $conn = getDBConnection();
     // add error checking later
     $conn->query("DELETE FROM films WHERE id=$id");
     return true;
-}
-
-
-// ---
-// teacher example Model functions from template
-
-function getAllLivres() {
-    global $conn;
-    $res = $conn->query("SELECT * FROM livres ORDER BY id DESC");
-    return $res->fetch_all(MYSQLI_ASSOC);
-}
-
-function addLivre($titre, $auteur, $annee) {
-    global $conn;
-    $titre = $conn->real_escape_string($titre);
-    $auteur = $conn->real_escape_string($auteur);
-    $annee = intval($annee);
-    $conn->query("INSERT INTO livres (titre,auteur,annee) VALUES ('$titre','$auteur','$annee')");
 }

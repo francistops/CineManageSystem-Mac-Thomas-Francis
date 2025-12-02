@@ -4,6 +4,11 @@ require_once APP_PATH . '/models/UserModel.php';
 
 function adminLogin(): void
 {
+    if ($_SESSION['is_login'] === true) {
+        header('Location: admin.php?action=dashboard');
+        exit;
+    }
+
     // 1) Si la requête est GET → juste afficher le formulaire
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         require VIEWS_PATH . '/admin/login.view.php';
@@ -57,7 +62,7 @@ function adminLogout(): void
  */
 function dashboard(): void
 {
-    if (empty($_SESSION['is_login'])) {
+    if ($_SESSION['is_login'] !== true) {
         header('Location: admin.php?action=login');
         exit;
     }
