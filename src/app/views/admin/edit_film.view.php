@@ -1,4 +1,8 @@
-<?php include '../includes/header.php'; ?>
+<?php
+include_once VIEWS_PATH . '/partials/header.php';
+require_once APP_PATH . '/controllers/Films.php';
+$film = get_film_by_id();
+?>
 
 <h2>Modifier le film</h2>
 <form method="POST">
@@ -10,4 +14,4 @@
     <button type="submit" name="update">Modifier</button>
 </form>
 
-<?php include '../includes/footer.php'; ?>
+<?php include_once (VIEWS_PATH . '/partials/footer.php'); ?>

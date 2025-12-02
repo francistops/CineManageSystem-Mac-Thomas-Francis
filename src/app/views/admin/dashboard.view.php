@@ -1,22 +1,43 @@
-<?php include '../includes/header.php'; ?>
+<?php
+include __DIR__ . '/../partials/header.php';
+require_once(CONTROLLERS_PATH . '/Films.php');
 
-<h2>Dashboard Admin</h2>
-<a href="add_film.php">Ajouter un film</a>
-<table border="1">
-    <tr>
-        <th>ID</th><th>Titre</th><th>Actions</th>
-    </tr>
-    <?php while($film = $result->fetch_assoc()): ?>
-    <tr>
-        <td><?php echo $film['id']; ?></td>
-        <td><?php echo htmlspecialchars($film['titre']); ?></td>
-        <td>
-            <a href="edit_film.php?id=<?php echo $film['id']; ?>">Modifier</a> |
-            <a href="delete_film.php?id=<?php echo $film['id']; ?>" onclick="return confirm('Supprimer ?')">Supprimer</a>
-        </td>
-    </tr>
-    <?php endwhile; ?>
+$films = get_films();
+?>
+
+<h1>Dashboard Admin</h1>
+<p>Bonjour, <?= htmlspecialchars($_SESSION['admin_username'] ?? '') ?></p>
+<p><a href="admin.php?action=logout">Se déconnecter</a></p>
+<p><a href="admin.php?action=add">Ajouter un film</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titre</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php if (!empty($films)): ?>
+        <?php foreach ($films as $film): ?>
+            <tr>
+                <td><?= htmlspecialchars($film['id']) ?></td>
+                <td><?= htmlspecialchars($film['titre']) ?></td>
+                <td>
+                    <a href="admin.php?action=edit&id=<?php echo $film['id']; ?>">Modifier</a> |
+                    <a href="admin.php?action=delete&id=<?php echo $film['id']; ?>" onclick="return confirm('Supprimer ?')">Supprimer</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <tr>
+            <td colspan="3">Aucun film trouvé.</td>
+        </tr>
+    <?php endif; ?>
+    </tbody>
 </table>
 
-<a href="logout.php">Déconnexion</a>
-<?php include '../includes/footer.php'; ?>
+<?php
+include __DIR__ . '/../partials/footer.php';
+?>

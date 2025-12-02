@@ -1,19 +1,31 @@
 <?php
+
 require_once APP_PATH . '/helper/db_connect.php';
+function checkAdmin(string $username, string $password): bool
+{
+    $conn = getDBConnection();
 
-function insert_user(array $newUser) : bool {
-    return 'ran insert_user';    
-}
+    $sql = "SELECT id, nom_utilisateur, mot_de_passe
+            FROM administrateurs
+            WHERE nom_utilisateur = ?
+            LIMIT 1";
 
-function checkAdmin(string $username, string $password) {
-    global $conn;
-    $stmt = $conn->prepare("SELECT * FROM administrateurs WHERE nom_utilisateur = ? AND mot_de_passe = ?");
-    // ND password=SHA2(?,256)"
-    $stmt->bind_param("ss", $username, $password);
+    $stmt = $conn->prepare($sql);
+    if (!$stmt) {
+        
+        die("Erreur de préparation de la requête : " . $conn->error);
+    }
+
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
+    $admin = $result->fetch_assoc();
+    $stmt->close();
 
-    var_dump($result);
-    var_dump($_SESSION);
-    return $result->num_rows === 1;
-} 
+    if (!$admin) {
+      
+        return false;
+    }
+
+    return $admin['mot_de_passe'] === $password;
+}
