@@ -1,4 +1,4 @@
-<?php
+<?php  
 require_once(CONTROLLERS_PATH . '/Films.php');
 include_once(VIEWS_PATH . '/partials/header.php');
 $films = get_films();
@@ -15,4 +15,5 @@ $films = get_films();
     <?php endforeach; ?>
 </ul>
 
-<?php include_once(VIEWS_PATH . '/partials/footer.php'); ?>
+<?php include_once (VIEWS_PATH . '/partials/footer.php'); ?>
+
