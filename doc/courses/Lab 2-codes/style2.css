@@ -1,0 +1,180 @@
+/* ----------- BASE ----------- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f6f6f6;
+    color: #333;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+/* ----------- NAVIGATION ----------- */
+.navbar {
+    background: #1a1a1a;
+    color: white;
+    padding: 15px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.menu li {
+    position: relative;
+    cursor: pointer;
+}
+
+.menu a {
+    color: white;
+}
+
+/* Sous-menus */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 35px;
+    background: white;
+    color: black;
+    border-radius: 6px;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    min-width: 150px;
+}
+
+.submenu li {
+    padding: 8px 15px;
+    white-space: nowrap;
+}
+
+.has-submenu:hover .submenu {
+    display: block;
+}
+
+.submenu li:hover {
+    background: #efefef;
+}
+
+/* ----------- CARROUSEL / HERO ----------- */
+.carousel {
+    height: 250px;
+    background: #cccccc;
+    margin: 20px auto;
+    width: 90%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide {
+    font-size: 24px;
+    color: #333;
+}
+
+/* ----------- CATÉGORIES ----------- */
+.categories {
+    background: white;
+    padding: 20px 40px;
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 90%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.cat {
+    background: #ececec;
+    padding: 25px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cat:hover {
+    background: #ddd;
+}
+
+/* ----------- PROMOTIONS ----------- */
+.promos {
+    width: 90%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+.promo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.promo-item {
+    padding: 20px;
+    border: 1px solid #ffcece;
+    background: #fff3f3;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cta {
+    background: #d62828;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cta:hover {
+    background: #b71c1c;
+}
+
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .promo-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

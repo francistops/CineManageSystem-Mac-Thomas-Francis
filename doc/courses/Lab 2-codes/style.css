@@ -1,0 +1,86 @@
+/* ---- Défauts volontaires ---- */
+/* contrastes trop faibles, tailles de texte petites, mauvaise hiérarchie */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    color: #666; /* contraste faible */
+}
+
+.header {
+    text-align: center;
+    padding: 15px;
+    background: #ddd; /* pas assez contrasté */
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+/* Solde total - style minimaliste pour montrer manque de hiérarchie */
+.balance {
+    background: #eaeaea;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: left; /* pas assez mis en avant */
+}
+
+.balance h2 {
+    font-size: 16px; /* trop petit */
+}
+
+.balance p {
+    font-size: 20px; /* pas assez dominant */
+}
+
+/* Buttons - manquent de visibilité et de hiérarchie */
+.actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    flex: 1;
+    padding: 8px;
+    background: #ccc; /* pas très visible */
+    border: 1px solid #bbb;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Transactions - lignes trop serrées */
+.transactions h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0; /* trop peu d’espace */
+    border-bottom: 1px solid #ddd;
+}
+
+.income {
+    color: green;
+}
+
+.expense {
+    color: red;
+}
+
+/* ---- Responsive volontairement problématique ---- */
+/* Pas de bonne gestion mobile : mêmes tailles, même structure */
+@media (max-width: 600px) {
+    .actions {
+        flex-direction: row; /* reste horizontal, pas idéal */
+    }
+
+    .transaction {
+        font-size: 12px; /* encore plus petit sur mobile */
+    }
+}

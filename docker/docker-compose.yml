@@ -1,0 +1,29 @@
+services:
+  app:
+    build:
+      context: ""
+      dockerfile: Dockerfile
+    container_name: CineManageSystem-app
+    restart: always
+    working_dir: /var/www/
+    volumes:
+      - ../:/var/www
+  nginx:
+    image: nginx:latest
+    container_name: CineManageSystem-nginx
+    restart: always
+    ports:
+      - 3000:80
+    volumes:
+      - ../:/var/www
+      - ./nginx:/etc/nginx/conf.d
+  db:
+    container_name: CineManageSystem-db
+    image: mysql:latest
+    volumes:
+      - ./storage/mysql:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3307:3306
