@@ -23,7 +23,7 @@ function read_film_by_id(int $id) {
     return $film;
 }
 
-function insert_film(array $filmData) {
+function insert_film($titre, $realisateur, $genre, $annee, $desc) {
     $conn = getDBConnection();
     // add error checking later
     $conn->query("INSERT INTO films (titre,realisateur,genre,annee_sortie,description) 

@@ -8,7 +8,7 @@ $films = get_films();
 <h1>Dashboard Admin</h1>
 <p>Bonjour, <?= htmlspecialchars($_SESSION['admin_username'] ?? '') ?></p>
 <p><a href="admin.php?action=logout">Se déconnecter</a></p>
-<p><a href="#">Ajouter un film</a></p>
+<p><a href="admin.php?action=add">Ajouter un film</a></p>
 
 <table class="table">
     <thead>
@@ -25,8 +25,8 @@ $films = get_films();
                 <td><?= htmlspecialchars($film['id']) ?></td>
                 <td><?= htmlspecialchars($film['titre']) ?></td>
                 <td>
-                    <a href="edit_film.php?id=<?php echo $film['id']; ?>">Modifier</a> |
-                    <a href="delete_film.php?id=<?php echo $film['id']; ?>" onclick="return confirm('Supprimer ?')">Supprimer</a>
+                    <a href="admin.php?action=edit&id=<?php echo $film['id']; ?>">Modifier</a> |
+                    <a href="admin.php?action=delete&id=<?php echo $film['id']; ?>" onclick="return confirm('Supprimer ?')">Supprimer</a>
                 </td>
             </tr>
         <?php endforeach; ?>

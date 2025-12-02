@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/../../../config.php';
 require_once(__DIR__ . '/../controller.php');
 require_once(__DIR__ . '/../models/MenuModel.php');
 
@@ -13,23 +13,29 @@ function get_film_by_id() {
     $id = intval($_GET['id']);
     return read_film_by_id($id);
 }
- function add_film(array $data) : filmObj {
+
+ function add_film(){
     if(isset($_POST['add'])) {
         $titre = $_POST['titre'];
         $realisateur = $_POST['realisateur'];
         $genre = $_POST['genre'];
         $annee = intval($_POST['annee_sortie']);
         $desc = $_POST['description'];
+
+        insert_film($titre, $realisateur, $genre, $annee, $desc);
+    } else {
+        include VIEWS_PATH . '/admin/add_film.view.php';
+        exit;
     }
 
     // call insert_film()
     // if sucess redirect to dashboard
-    header('Location: dashboard.php');
+    header('Location: admin.php?action=dashboard');
     exit;
 
     return 'ran add_film';    
 }
- function edit_film(array $data) : filmObj {
+ function edit_film(array $data){
     if(isset($_POST['update'])) {
         $titre = $_POST['titre'];
         $realisateur = $_POST['realisateur'];

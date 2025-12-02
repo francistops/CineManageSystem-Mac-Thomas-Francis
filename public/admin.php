@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../config.php';
 require_once APP_PATH . '/controllers/AuthController.php';
+require_once APP_PATH . '/controllers/Films.php';
 
 session_start();
 
@@ -22,8 +23,19 @@ switch ($action) {
     case 'dashboard':
         dashboard();
         break;
+    
+    case 'add': 
+        add_film(); 
+        break;
+
+    case 'edit':
+        edit_film($id);
+        break;
+
+    case 'delete':
+        delete_film($id);
+        break;
 
     default:
         dashboard();
 }
-
