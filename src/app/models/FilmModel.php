@@ -34,7 +34,7 @@ function delete_film(int $id) : bool {
     return 'ran delete_film';
 }
 
-// Livre Model functions from template
+// Livre Model functions from templatee
 
 function getAllLivres() {
     global $conn;
