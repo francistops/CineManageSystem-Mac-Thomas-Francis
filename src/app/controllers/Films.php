@@ -11,8 +11,7 @@ function get_films() {
 
 function get_film_by_id() {
     $id = intval($_GET['id']);
-    read_film_by_id($id);
-    return 'ran get_film_by_id';
+    return read_film_by_id($id);
 }
  function add_film(array $data) : filmObj {
     if(isset($_POST['add'])) {
