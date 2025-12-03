@@ -1,29 +1,25 @@
--- ===========================================================
--- Script SQL - Base de données du système existant CinéManage
--- Version : Système initial (avant refonte)
--- Base de données : cinemanage_db
--- Auteur : Équipe de développement initiale
--- ===========================================================
-
--- 1️⃣ Création de la base de données
 CREATE DATABASE IF NOT EXISTS cinemanage_db
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_general_ci;
 
 USE cinemanage_db;
 
--- 2️⃣ Table : administrateurs
+-- Table : administrateurs
 CREATE TABLE IF NOT EXISTS administrateurs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom_utilisateur VARCHAR(50) NOT NULL,
-    mot_de_passe VARCHAR(255) NOT NULL
+    mot_de_passe VARCHAR(255) NOT NULL,
+    role VARCHAR(50) NOT NULL DEFAULT 'admin'
 );
 
--- Insérer un administrateur de test
-INSERT INTO administrateurs (nom_utilisateur, mot_de_passe)
-VALUES ('admin', 'admin123'); -- ⚠️ mot de passe en clair (non sécurisé)
 
--- 3️⃣ Table : films
+-- Insérer un administrateur de test
+INSERT INTO administrateurs (nom_utilisateur, mot_de_passe, role)
+VALUES 
+('admin', 'admin123', 'admin'),
+('editeur', 'editeur123', 'editor'); -- mot de passe(non sécurisé)
+
+-- Table : films
 CREATE TABLE IF NOT EXISTS films (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titre VARCHAR(100) NOT NULL,
@@ -41,11 +37,11 @@ VALUES
 ('Interstellar', 'Christopher Nolan', 'Science-Fiction', 2014, 'Une équipe d’explorateurs voyage à travers un trou de ver à la recherche d’un nouveau monde habitable.'),
 ('Parasite', 'Bong Joon-ho', 'Thriller', 2019, 'Une satire sociale racontant la rencontre entre deux familles issues de milieux opposés.');
 
--- 4️⃣ Index et contraintes
+-- Index et contraintes
 -- (aucune clé étrangère dans le système existant)
 -- (aucune normalisation appliquée)
 
--- 5️⃣ Droits d’accès
+--  Droits d’accès
 -- (aucune gestion d’utilisateurs SQL spécifique dans le système existant)
 
 -- ===========================================================

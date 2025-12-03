@@ -23,6 +23,30 @@ switch ($action) {
         dashboard();
         break;
 
+<<<<<<< Updated upstream
+=======
+    case 'add':
+        add_film();
+        break;
+
+    case 'edit':
+        edit_film();
+        break;
+
+    case 'delete':
+        remove_film();
+        break;
+
+
+    case 'manage_admins':
+        manageAdmins();
+        break;
+
+    case 'update_admin_role':
+        updateAdminRole();
+        break;
+
+>>>>>>> Stashed changes
     default:
         dashboard();
 }
