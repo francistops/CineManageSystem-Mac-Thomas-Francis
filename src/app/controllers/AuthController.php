@@ -25,8 +25,11 @@ function requireRole(array $roles): void
 function adminLogin(): void
 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // 1) Si la requête est GET → juste afficher le formulaire
 =======
+=======
+>>>>>>> Stashed changes
     // Si déjà connecté, on redirige directement vers le dashboard
     if (!empty($_SESSION['is_login']) && $_SESSION['is_login'] === true) {
         header('Location: admin.php?action=dashboard');
@@ -34,6 +37,9 @@ function adminLogin(): void
     }
 
     // Requête GET : on affiche juste le formulaire
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         // S'assure que la variable existe pour la vue
@@ -97,7 +103,11 @@ function adminLogout(): void
 function dashboard(): void
 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     if (empty($_SESSION['is_login'])) {
+=======
+    if (empty($_SESSION['is_login']) || $_SESSION['is_login'] !== true) {
+>>>>>>> Stashed changes
 =======
     if (empty($_SESSION['is_login']) || $_SESSION['is_login'] !== true) {
 >>>>>>> Stashed changes

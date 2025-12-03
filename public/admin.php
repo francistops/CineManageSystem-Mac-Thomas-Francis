@@ -46,6 +46,9 @@ switch ($action) {
         updateAdminRole();
         break;
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     default:
         dashboard();

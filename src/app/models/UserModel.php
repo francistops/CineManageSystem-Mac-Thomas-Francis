@@ -19,8 +19,12 @@ function checkAdmin(string $username, string $password): ?array
 
     if (!$stmt) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         
         die("Erreur de préparation de la requête : " . $conn->error);
+=======
+        return null;
+>>>>>>> Stashed changes
 =======
         return null;
 >>>>>>> Stashed changes
@@ -31,9 +35,12 @@ function checkAdmin(string $username, string $password): ?array
     $result = $stmt->get_result();
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     if (!$admin) {
       
 =======
+=======
+>>>>>>> Stashed changes
     if ($result && $admin = $result->fetch_assoc()) {
         return $admin; // contient id, nom_utilisateur, role
     }
@@ -79,6 +86,9 @@ function updateAdminRoleById(int $id, string $role): bool
     );
 
     if (!$stmt) {
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         return false;
     }

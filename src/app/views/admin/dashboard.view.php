@@ -9,11 +9,15 @@ $films = get_films();
 // Rôle courant (admin par défaut si non défini, pour éviter les notices)
 $currentRole = $_SESSION['admin_role'] ?? 'admin';
 $isAdmin     = ($currentRole === 'admin');
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 ?>
 
 <h1>Dashboard Admin</h1>
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <p>Bonjour, <?= htmlspecialchars($_SESSION['admin_username'] ?? '') ?></p>
 
@@ -25,6 +29,8 @@ $isAdmin     = ($currentRole === 'admin');
     <a href="#">Ajouter un film</a>
 </p>
 =======
+=======
+>>>>>>> Stashed changes
 <p>
     Bonjour,
     <?= htmlspecialchars($_SESSION['admin_username'] ?? '', ENT_QUOTES, 'UTF-8') ?>
@@ -39,6 +45,10 @@ $isAdmin     = ($currentRole === 'admin');
 
 <p><a href="admin.php?action=add">Ajouter un film</a></p>
 >>>>>>> Stashed changes
+
+<?php if ($isAdmin): ?>
+    <p><a href="admin.php?action=manage_admins">Gérer les administrateurs</a></p>
+<?php endif; ?>
 
 <?php if ($isAdmin): ?>
     <p><a href="admin.php?action=manage_admins">Gérer les administrateurs</a></p>
