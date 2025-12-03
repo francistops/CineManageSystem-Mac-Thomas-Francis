@@ -1,16 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet');
 
-/* ========== Global ========== */
+/* ========== Global ========== 
+    --img-src-:;*/
 
 :root{
     --Orange-Popcorn: #FFA726;
     --Bleu-Miuit: #1A237E;
     --Blanc-Casse: #FAFAFA;
+    --Blanc-Casse-alt: #e1e7f9;
     --Gris-Fonce: #37474F;
+
+    --Orange-Popcorn-hover: #df921f;
+    --Bleu-Miuit-hover: #131a66;
+    --Blanc-Casse-hover: #dedff2;
+    --Gris-Fonce-hover: #233137;
 
     --typo-titre: 'Poppins';
     --typo-texte: 'Lato';
+
+    --img-src-vieuxcine: "/assets/img/imagevieuxcineblanc.png";
+
 }
 
 * {
@@ -41,8 +51,13 @@ header h1 {
     margin-bottom: 10px;
 }
 
+img{
+    width: 150px;
+    height: 75px;
+}
+
 nav a {
-    color: var(--Bleu-Miuit);
+    color: var(--Gris-Fonce);
     text-decoration: none;
     margin-right: 15px;
     font-weight: bold;
@@ -50,7 +65,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--Orange-Popcorn);
+    color: var(--Gris-Fonce-hover);
 }
 
 /* ========== Footer ========== */
@@ -65,9 +80,109 @@ h2 {
     color: var(--Gris-Fonce);
     margin-bottom: 20px;
 }
+h3, h4{
+    font: var(--typo-titre);
+    font-size: 1.5em;
+}
+
+.bg-shadow-off{
+    box-shadow: none;
+}
+li p.desc{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--Blanc-Casse-alt);
+}
 
 p {
     margin-bottom: 10px;
+}
+div img{    
+    min-width: 225px;
+    min-height: 300px;
+}
+
+ul li img{
+    min-width: 225px;
+    min-height: 300px;
+}
+ul{
+    display: flex;
+}
+ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 25px;   
+    max-width: 350px; 
+    margin: 25px;
+}
+
+ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+ul li a:hover{
+    color: var(--Gris-Fonce);
+}
+.containterFlexRow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.containterFlexCol{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.alignttextleft{
+    text-align: left;
+    margin: 50px;
+}
+
+.whitebox{
+    background-color: var(--Blanc-Casse);
+}
+
+.bgimgvieuxcine{
+    background-image: img("/assets/img/imagevieuxcineblanc.png");
+    background-size: cover;
+}
+/* ========== Buttons ========== */
+
+a.btn1{
+    background-color: var(--Bleu-Miuit);
+    color: var(--Blanc-Casse);
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+a.btn1:hover{
+    background-color: var(--Bleu-Miuit-hover);
+    color: var(--Blanc-Casse);
+}
+
+
+a.btn2{
+    background-color: var(--Orange-Popcorn);
+    color: var(--Blanc-Casse);
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+a.btn2:hover{
+    background-color: var(--Orange-Popcorn-hover);
+    color: var(--Blanc-Casse);
 }
 
 /* ========== Tables ========== */
@@ -75,7 +190,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    background-color: var(--Gris-Fonce);
+    background-color: var(--Blanc-Casse-alt);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -87,8 +202,8 @@ th, td {
 }
 
 th {
-    background-color: var(--Gris-Fonce);
-    color: var(--Blanc-Casse);
+    background-color: var(--Blanc-Casse);
+    color: var(--Gris-Fonce);
 }
 
 tr:nth-child(even) {
@@ -96,7 +211,7 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-    background-color: var(--Gris-Fonce);
+    background-color: var(--Blanc-Casse-hover);
 }
 
 /* ========== Forms ========== */

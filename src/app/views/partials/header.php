@@ -9,10 +9,9 @@
 
 <body>
     <header>
-        <h1>CinéManage</h1>
+        <img src="assets/img/cineguestlogo.png" alt="logocinemanage.png">
         <nav>
             <a href="<?php echo BASE_URL; ?>index.php">Accueil</a> |
             <a href="<?php echo BASE_URL; ?>index.php?action=login">Login</a>
         </nav>
     </header>
-    <hr>

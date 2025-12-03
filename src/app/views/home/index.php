@@ -9,7 +9,12 @@ $films = get_films();
     <?php foreach ($films as $film): ?>
         <li>
             <a href="<?php echo htmlspecialchars('index.php?action=films&id=' . $film['id']); ?>">
-                <?php echo htmlspecialchars($film['titre']) . ' (' . htmlspecialchars($film['annee_sortie']) . ')'; ?>
+            <img src="/assets/img/interstellar_temp_poster.png" alt="interstellar_temp_poster.png">
+                <h4><?php echo htmlspecialchars($film['titre']) . ' (' . htmlspecialchars($film['annee_sortie']) . ')'; ?></h4>
+                <?php echo htmlspecialchars($film['realisateur']); ?>
+            
+            <p class="desc"><?php echo  htmlspecialchars($film['description']); ?></p>
+            <a class="btn1" href="">réserver</a>
             </a>
         </li>
     <?php endforeach; ?>
