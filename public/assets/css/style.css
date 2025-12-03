@@ -148,17 +148,65 @@ ul li a:hover{
     margin: 50px;
 }
 
+.bigimg{    
+    min-width: 450px;
+    min-height: 600px;
+}
+
+.smallwhitebox{
+    background-color: var(--Blanc-Casse);
+    max-width: 500px;
+    max-height: 400px;
+    min-width: 500px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+
 .whitebox{
     background-color: var(--Blanc-Casse);
+    max-width: 900px;
+    max-height: 900px;
+    min-width: 900px;
+    min-height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
 }
 
 .bgimgvieuxcine{
-    background-image: img("/assets/img/imagevieuxcineblanc.png");
+    
+    width: 2000px;
+    height: 1000px;
+    background-image: url("../img/imagevieuxcineblanc.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+.bgimginterieurcine{
+    
+    width: 2000px;
+    height: 1000px;
+    background-image: url("../img/imageinterieurcine.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 /* ========== Buttons ========== */
 
-a.btn1{
+.btn1{
     background-color: var(--Bleu-Miuit);
     color: var(--Blanc-Casse);
     padding: 5px 8px;
@@ -166,13 +214,13 @@ a.btn1{
     margin: 10px;
 }
 
-a.btn1:hover{
+.btn1:hover{
     background-color: var(--Bleu-Miuit-hover);
     color: var(--Blanc-Casse);
 }
 
 
-a.btn2{
+.btn2{
     background-color: var(--Orange-Popcorn);
     color: var(--Blanc-Casse);
     padding: 5px 8px;
@@ -180,7 +228,7 @@ a.btn2{
     margin: 10px;
 }
 
-a.btn2:hover{
+.btn2:hover{
     background-color: var(--Orange-Popcorn-hover);
     color: var(--Blanc-Casse);
 }

@@ -1,5 +1,5 @@
 <?php
-include_once VIEWS_PATH . '/partials/header.php';
+include_once VIEWS_PATH . '/partials/header_admin.php';
 require_once APP_PATH . '/controllers/Films.php';
 $film = get_film_by_id();
 ?>
@@ -17,7 +17,7 @@ $film = get_film_by_id();
     <button type="submit" name="update">Modifier</button>
 </form>
 </div>
-<div><img src="/assets/img/interstellar_temp_poster.png" alt=""></div>
+<div><img class="bigimg" src="/assets/img/interstellar_temp_poster.png" alt=""></div>
 </div>
 
 </div>

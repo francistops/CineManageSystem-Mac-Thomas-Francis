@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../partials/header.php';
+include __DIR__ . '/../partials/header_admin.php';
 require_once(CONTROLLERS_PATH . '/Films.php');
 
 $films = get_films();
@@ -25,9 +25,6 @@ $films = get_films();
         </li>
     <?php endforeach; ?>
 </ul>
-
-<p><a href="admin.php?action=add">Ajouter un film</a></p>
-<p><a href="admin.php?action=logout">Se déconnecter</a></p>
 
 
 <?php
