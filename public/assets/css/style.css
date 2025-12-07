@@ -1,4 +1,28 @@
-/* ========== Global ========== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet');
+
+/* ========== Global ========== 
+    --img-src-:;*/
+
+:root{
+    --Orange-Popcorn: #FFA726;
+    --Bleu-Miuit: #1A237E;
+    --Blanc-Casse: #FAFAFA;
+    --Blanc-Casse-alt: #e1e7f9;
+    --Gris-Fonce: #37474F;
+
+    --Orange-Popcorn-hover: #df921f;
+    --Bleu-Miuit-hover: #131a66;
+    --Blanc-Casse-hover: #dedff2;
+    --Gris-Fonce-hover: #233137;
+
+    --typo-titre: 'Poppins';
+    --typo-texte: 'Lato';
+
+    --img-src-vieuxcine: "/assets/img/imagevieuxcineblanc.png";
+
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,17 +30,17 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    font-family: var(--typo-texte), sans-serif;
+    background-color: var(--Blanc-Casse);
+    color: var(--Gris-Fonce);
     line-height: 1.6;
     padding: 20px;
 }
 
 /* ========== Header ========== */
 header {
-    background-color: #2c3e50;
-    color: #ecf0f1;
+    background-color: var(--Blanc-Casse);
+    color: var(--Bleu-Miuit);
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 30px;
@@ -27,8 +51,13 @@ header h1 {
     margin-bottom: 10px;
 }
 
+img{
+    width: 150px;
+    height: 75px;
+}
+
 nav a {
-    color: #ecf0f1;
+    color: var(--Gris-Fonce);
     text-decoration: none;
     margin-right: 15px;
     font-weight: bold;
@@ -36,24 +65,172 @@ nav a {
 }
 
 nav a:hover {
-    color: #f39c12;
+    color: var(--Gris-Fonce-hover);
 }
 
 /* ========== Footer ========== */
 footer {
     margin-top: 50px;
     text-align: center;
-    color: #7f8c8d;
+    color: var(--Gris-Fonce);
 }
 
 /* ========== Main content ========== */
 h2 {
-    color: #2c3e50;
+    color: var(--Gris-Fonce);
     margin-bottom: 20px;
+}
+h3, h4{
+    font: var(--typo-titre);
+    font-size: 1.5em;
+}
+
+.bg-shadow-off{
+    box-shadow: none;
+}
+li p.desc{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--Blanc-Casse-alt);
 }
 
 p {
     margin-bottom: 10px;
+}
+div img{    
+    min-width: 225px;
+    min-height: 300px;
+}
+
+ul li img{
+    min-width: 225px;
+    min-height: 300px;
+}
+ul{
+    display: flex;
+}
+ul li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 25px;   
+    max-width: 350px; 
+    margin: 25px;
+}
+
+ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+ul li a:hover{
+    color: var(--Gris-Fonce);
+}
+.containterFlexRow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.containterFlexCol{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.alignttextleft{
+    text-align: left;
+    margin: 50px;
+}
+
+.bigimg{    
+    min-width: 450px;
+    min-height: 600px;
+}
+
+.smallwhitebox{
+    background-color: var(--Blanc-Casse);
+    max-width: 500px;
+    max-height: 400px;
+    min-width: 500px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+
+.whitebox{
+    background-color: var(--Blanc-Casse);
+    max-width: 900px;
+    max-height: 900px;
+    min-width: 900px;
+    min-height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+
+.bgimgvieuxcine{
+    
+    width: 2000px;
+    height: 1000px;
+    background-image: url("../img/imagevieuxcineblanc.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+.bgimginterieurcine{
+    
+    width: 2000px;
+    height: 1000px;
+    background-image: url("../img/imageinterieurcine.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+/* ========== Buttons ========== */
+
+.btn1{
+    background-color: var(--Bleu-Miuit);
+    color: var(--Blanc-Casse);
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.btn1:hover{
+    background-color: var(--Bleu-Miuit-hover);
+    color: var(--Blanc-Casse);
+}
+
+
+.btn2{
+    background-color: var(--Orange-Popcorn);
+    color: var(--Blanc-Casse);
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.btn2:hover{
+    background-color: var(--Orange-Popcorn-hover);
+    color: var(--Blanc-Casse);
 }
 
 /* ========== Tables ========== */
@@ -61,7 +238,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    background-color: #fff;
+    background-color: var(--Blanc-Casse-alt);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -73,21 +250,21 @@ th, td {
 }
 
 th {
-    background-color: #34495e;
-    color: #ecf0f1;
+    background-color: var(--Blanc-Casse);
+    color: var(--Gris-Fonce);
 }
 
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: var(--Blanc-Casse);
 }
 
 tr:hover {
-    background-color: #f1c40f33;
+    background-color: var(--Blanc-Casse-hover);
 }
 
 /* ========== Forms ========== */
 form {
-    background: #fff;
+    background: var(--Blanc-Casse);
     padding: 20px;
     border-radius: 8px;
     max-width: 500px;
@@ -108,7 +285,7 @@ form textarea {
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--Gris-Fonce);
     border-radius: 5px;
     font-size: 1em;
     transition: border 0.3s;
@@ -118,13 +295,13 @@ form input[type="text"]:focus,
 form input[type="password"]:focus,
 form input[type="number"]:focus,
 form textarea:focus {
-    border-color: #f39c12;
+    border-color: var(--Orange-Popcorn);
     outline: none;
 }
 
 form button {
-    background-color: #f39c12;
-    color: #fff;
+    background-color: var(--Orange-Popcorn);
+    color: var(--Blanc-Casse);
     border: none;
     padding: 12px 20px;
     font-size: 1em;
@@ -134,7 +311,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #d35400;
+    background-color: var(--Orange-Popcorn);
 }
 
 /* ========== Lists ========== */
@@ -144,7 +321,7 @@ ul {
 }
 
 ul li {
-    background: #fff;
+    background: var(--Blanc-Casse);
     margin-bottom: 10px;
     padding: 15px;
     border-radius: 8px;
@@ -158,13 +335,13 @@ ul li:hover {
 
 /* ========== Links ========== */
 a {
-    color: #3498db;
+    color: var(--Gris-Fonce);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #e67e22;
+    color: var(--Orange-Popcorn);
 }
 
 /* ========== Responsive ========== */

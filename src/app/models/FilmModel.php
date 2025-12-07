@@ -1,73 +1,57 @@
 <?php
 require_once APP_PATH . '/helper/db_connect.php';
 
-function read_films() : array {
-    $result = $conn->query("SELECT * FROM films ORDER BY id DESC");
-    return 'ran read_film';
+function read_films()
+{
+    $conn = getDBConnection();
+    $result = $conn->query("SELECT * FROM films ORDER BY annee_sortie DESC");
+    return $result;
 }
 
-function read_film_by_id(int $id): filmObj {
+function read_film_by_id(int $id)
+{
+    $conn = getDBConnection();
+
+    if (!isset($_GET['id'])) {
+        echo "<p>ID de film manquant.</p>";
+        require_once(VIEWS_PATH . '/partials/footer.php');
+        exit;
+    }
+
+    $id = intval($_GET['id']);
+
     $result = $conn->query("SELECT * FROM films WHERE id=$id");
     $film = $result->fetch_assoc();
-    return 'ran read_film_by_id';
+    return $film;
 }
 
-function insert_film(array $filmData) : bool {
+function insert_film($titre, $realisateur, $genre, $annee, $desc)
+{
+    $conn = getDBConnection();
+    // add error checking later
     $conn->query("INSERT INTO films (titre,realisateur,genre,annee_sortie,description) 
                  VALUES ('$titre','$realisateur','$genre','$annee','$desc')");
-    return 'ran insert_film';
+    return true;
 }
 
-function update_film(int $id) : bool {
+function update_film($id, $titre, $realisateur, $genre, $annee, $desc): bool
+{
+    $conn = getDBConnection();
+    // add error checking later
     $conn->query("UPDATE films 
                     SET titre='$titre',
                         realisateur='$realisateur',
                         genre='$genre',
-                        annee_sortie='$annee',
+                        annee_sortie=$annee,
                         description='$desc'
                     WHERE id=$id");
-    return 'ran update_film';
+    return true;
 }
 
-function delete_film(int $id) : bool {
+function delete_film(int $id)
+{
+    $conn = getDBConnection();
+    // add error checking later
     $conn->query("DELETE FROM films WHERE id=$id");
-    return 'ran delete_film';
-}
-
-// Livre Model functions from templatee
-
-function getAllLivres() {
-    global $conn;
-    $res = $conn->query("SELECT * FROM livres ORDER BY id DESC");
-    return $res->fetch_all(MYSQLI_ASSOC);
-}
-
-function getLivreById($id) {
-    global $conn;
-    $id = intval($id);
-    $res = $conn->query("SELECT * FROM livres WHERE id=$id");
-    return $res->fetch_assoc();
-}
-
-function addLivre($titre, $auteur, $annee) {
-    global $conn;
-    $titre = $conn->real_escape_string($titre);
-    $auteur = $conn->real_escape_string($auteur);
-    $annee = intval($annee);
-    $conn->query("INSERT INTO livres (titre,auteur,annee) VALUES ('$titre','$auteur','$annee')");
-}
-
-function updateLivre($id, $titre, $auteur, $annee) {
-    global $conn;
-    $id = intval($id);
-    $titre = $conn->real_escape_string($titre);
-    $auteur = $conn->real_escape_string($auteur);
-    $annee = intval($annee);
-    $conn->query("UPDATE livres SET titre='$titre', auteur='$auteur', annee='$annee' WHERE id=$id");
-}
-
-function deleteLivre($id) {
-    global $conn;
-    $id = intval($id);
-    $conn->query("DELETE FROM livres WHERE id=$id");
+    return true;
 }

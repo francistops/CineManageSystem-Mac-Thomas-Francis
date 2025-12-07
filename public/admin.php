@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . '/../config.php';
+require_once __DIR__  . '/../config.php';
 require_once APP_PATH . '/controllers/AuthController.php';
+require_once APP_PATH . '/controllers/Films.php';
 
 session_start();
 
@@ -23,8 +24,6 @@ switch ($action) {
         dashboard();
         break;
 
-<<<<<<< Updated upstream
-=======
     case 'add':
         add_film();
         break;
@@ -37,7 +36,6 @@ switch ($action) {
         remove_film();
         break;
 
-
     case 'manage_admins':
         manageAdmins();
         break;
@@ -46,11 +44,6 @@ switch ($action) {
         updateAdminRole();
         break;
 
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     default:
         dashboard();
 }
-
