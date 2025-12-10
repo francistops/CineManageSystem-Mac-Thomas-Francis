@@ -15,15 +15,14 @@ CREATE TABLE IF NOT EXISTS films (
     realisateur VARCHAR(100),
     genre VARCHAR(50),
     annee_sortie INT,
-    imge_url VARCHAR(255),
+    img_url VARCHAR(255),
     description TEXT
 );
 
 CREATE Table if NOT EXISTS salles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
-    capacite INT NOT NULL,
-    FOREIGN KEY (film_id) REFERENCES films(id)
+    capacite INT NOT NULL
 );
 
  CREATE TABLE if NOT EXISTS programmations (
@@ -35,9 +34,7 @@ CREATE Table if NOT EXISTS salles (
     salle_id INT,
     FOREIGN KEY (salle_id) REFERENCES salles(id),
     date_debut DATETIME,
-    date_fin DATETIME,
-    heure_debut TIME,
-    heure_fin TIME
+    date_fin DATETIME
 );
 
 INSERT INTO administrateurs (nom_utilisateur, mot_de_passe, role)
