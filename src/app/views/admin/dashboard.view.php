@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../partials/header_admin.php';
+include __DIR__ . '/../partials/header.php';
 require_once(CONTROLLERS_PATH . '/Films.php');
 
 $films = get_films();

@@ -1,5 +1,5 @@
 <?php
-include_once VIEWS_PATH . '/partials/header_admin.php';
+include_once VIEWS_PATH . '/partials/header.php';
 require_once APP_PATH . '/controllers/Films.php';
 $film = get_film_by_id();
 ?>
