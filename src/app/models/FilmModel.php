@@ -1,6 +1,8 @@
 <?php
 require_once APP_PATH . '/helper/db_connect.php';
 
+
+
 function read_films()
 {
     $conn = getDBConnection();
@@ -23,6 +25,40 @@ function read_film_by_id(int $id)
     $result = $conn->query("SELECT * FROM films WHERE id=$id");
     $film = $result->fetch_assoc();
     return $film;
+}
+
+function filter_film_by_type(string $type, string $query)
+{
+    $conn = getDBConnection();
+
+    if (!isset($type) && !isset($query)) {
+        echo "<p>Donnée manquante.</p>";
+        require_once(VIEWS_PATH . '/partials/footer.php');
+        exit;
+    }
+//ORDER BY annee_sortie DESC
+    $sql = "SELECT * FROM films";
+    
+    switch ($type) {
+    case 'genre':
+        $sql .= ' WHERE genre=' . "'" . $query . "'";
+        break;
+    case 'year':
+        $sql .= " WHERE annee_sortie=$query";
+        break;
+    case 'rating':
+        $sql .= " WHERE rating=$query";
+        break;
+    default:
+        echo "<p>Recherche invalide ou film non trouvé.</p>";
+    }
+
+    $result = $conn->query($sql);
+    // foreach ($result->fetch_assoc() as $key => $value) {
+    //     var_dump($key, $value);
+    //     echo '<br>';
+    // }
+    return $result->fetch_assoc();
 }
 
 function insert_film($titre, $realisateur, $genre, $annee, $desc)

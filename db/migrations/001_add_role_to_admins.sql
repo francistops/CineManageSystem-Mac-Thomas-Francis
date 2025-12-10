@@ -1,0 +1,1 @@
+ALTER TABLE admins ADD COLUMN role ENUM( 'admin','user') NOT NULL DEFAULT 'admin'

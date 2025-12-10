@@ -2,6 +2,16 @@
 require_once __DIR__ . '/../../../config.php';
 require_once MODELS_PATH . '/../models/FilmModel.php';
 
+
+function search_films_by_type() {
+    // check isset
+    $type = $_GET['type'];
+    $query = $_GET['query'];
+
+    $result = filter_film_by_type($type, $query);
+    include_once VIEWS_PATH . '/home/debug.view.php';
+}
+
 function get_films()
 {
     $films = read_films();

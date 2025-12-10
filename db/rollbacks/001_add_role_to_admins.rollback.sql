@@ -1,0 +1,1 @@
+alter table admins drop COLUMN role

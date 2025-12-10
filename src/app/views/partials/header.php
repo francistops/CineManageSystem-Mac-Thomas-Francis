@@ -12,7 +12,7 @@
         <img src="assets/img/cineguestlogo.png" alt="logocinemanage.png">
         <nav>
             <a href="<?php echo BASE_URL; ?>index.php"> Accueil </a>
-            <?php if ($_SESSION['is_login'] === false || !isset($_SESSION['is_login'])): ?>
+            <?php if ($_SESSION['is_login'] === false && !isset($_SESSION['is_login'])): ?>
                 <a href="<?php echo BASE_URL; ?>index.php?action=login"> Connexion Administrateur </a>
             <?php else: ?>
                 <a href="<?php echo BASE_URL; ?>index.php?action=dashboard"> Tableau de bord </a>

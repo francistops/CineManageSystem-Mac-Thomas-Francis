@@ -13,10 +13,12 @@ CREATE TABLE IF NOT EXISTS films (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titre VARCHAR(100) NOT NULL,
     realisateur VARCHAR(100),
+    -- add an enum pour le genre des film dans la db
     genre VARCHAR(50),
     annee_sortie INT,
     img_url VARCHAR(255),
     description TEXT
+    -- add rating in db
 );
 
 CREATE Table if NOT EXISTS salles (
