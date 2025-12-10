@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS administrateurs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom_utilisateur VARCHAR(50) NOT NULL,
     mot_de_passe VARCHAR(255) NOT NULL,
-    role VARCHAR(20) DEFAULT 'admin'
+    role VARCHAR(20) DEFAULT 'admin' NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS films (
