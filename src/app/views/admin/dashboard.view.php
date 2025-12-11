@@ -14,7 +14,7 @@ $films = get_films();
             <a href="<?php echo htmlspecialchars('index.php?action=films&id=' . $film['id']); ?>">
             <img src="/assets/img/interstellar_temp_poster.png" alt="interstellar_temp_poster.png">
                 <h4><?php echo htmlspecialchars($film['titre']) . ' (' . htmlspecialchars($film['annee_sortie']) . ')'; ?></h4>
-                <?php echo htmlspecialchars($film['realisateur']); ?>
+                <p><?php echo htmlspecialchars($film['realisateur']); ?> </p>
             
             <p class="desc"><?php echo  htmlspecialchars($film['description']); ?></p>            
             </a>

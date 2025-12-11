@@ -20,9 +20,12 @@ if (!empty($film)):
 </div>
 <div class="containterFlexCol">
     <h3>AJOUTEZ UNE NOTE ICI!</h3>
-    <li><img src="/assets/img/star.svg" alt=""> 
+    <div class="note">
+        
+    <li ><img src="/assets/img/star.svg" alt=""> 
 <img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt="">
 </li>
+    </div>
 </div>
 <?php else: ?>
     <p>Film introuvable.</p>

@@ -285,7 +285,7 @@ form textarea {
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1px solid var(--Gris-Fonce);
+    border: none;
     border-radius: 5px;
     font-size: 1em;
     transition: border 0.3s;
@@ -351,9 +351,47 @@ a:hover {
 
 /*portrait*/
 @media only screen and (max-width:600px) and (orientation: portrait){
+/*fix font sizing*/
 
+h2 {
+    font-size: 2rem;
+}
+h3, h4{
+    font-size: 2rem;
+}
+
+p, label{
+    font-size: 1.5rem;
+}
+nav a{
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+form button{
+    font-size: 2rem;
+    padding: 20px 32px;
+}
+
+.btn1{
+    font-size: 2rem;
+    padding: 20px 32px;
+
+}
+.btn2{
+    font-size: 2rem;
+    padding: 20px 32px;
+
+}
+
+p.desc{
+    max-width: 230px;
+}
+
+
+/*fix listes de films*/
 ul{
-    max-width: 80%;
+    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -363,6 +401,48 @@ div.center{
     display: flex;
     align-items: center;
 }
+ul li{
+    margin: 0;
+}
+/*fix forms*/
+
+.bgimgvieuxcine{
+    width: 600px;
+    height: 1600px;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+.bgimginterieurcine{
+    width: 600px;
+    height: unset;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+div.whitebox{
+    max-width: 600px;
+}
+
+.bigimg{    
+    max-width: 300px;
+    min-height: 500px;
+}
+.containterFlexRow{
+    flex-direction: column;
+}
+
+div.note img {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+
 
 }
 @media only screen and (min-width:601px) and (orientation: portrait){

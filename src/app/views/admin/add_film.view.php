@@ -6,8 +6,12 @@ require_once APP_PATH . '/controllers/Films.php';
 
 
 <div class="bgimgvieuxcine">
-<div class="whitebox">    
+<div class="whitebox">     
+    <div class="containerFlexColumn">
+<h2>Ajouter un film</h2>
 <div class="containterFlexRow">
+    
+<div><img class="bigimg" src="/assets/img/interstellar_temp_poster.png" alt=""></div>
     <div>
 <h2>Ajouter un film</h2>
 <form class="bg-shadow-off" method="POST">
@@ -19,9 +23,8 @@ require_once APP_PATH . '/controllers/Films.php';
     <button type="submit" name="add" onclick="add_film()"> Ajouter</a></button>
 </form>
 </div>
-<div><img class="bigimg" src="/assets/img/interstellar_temp_poster.png" alt=""></div>
 </div>
-
+</div>
 </div>
 </div>
 

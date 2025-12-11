@@ -5,9 +5,12 @@ $film = get_film_by_id();
 ?>
 <div class="bgimgvieuxcine">
 <div class="whitebox">    
-<div class="containterFlexRow">
-    <div>
+    <div class="containerFlexColumn">
 <h2>Modifier le film</h2>
+<div class="containterFlexRow">
+    
+<div><img class="bigimg" src="/assets/img/interstellar_temp_poster.png" alt=""></div>
+    <div>
 <form class="bg-shadow-off" method="POST">
     <label>Titre: <input type="text" name="titre" value="<?php echo htmlspecialchars($film['titre']); ?>" required></label><br>
     <label>Réalisateur: <input type="text" name="realisateur" value="<?php echo htmlspecialchars($film['realisateur']); ?>" required></label><br>
@@ -17,7 +20,7 @@ $film = get_film_by_id();
     <button type="submit" name="update">Modifier</button>
 </form>
 </div>
-<div><img class="bigimg" src="/assets/img/interstellar_temp_poster.png" alt=""></div>
+</div>
 </div>
 
 </div>
