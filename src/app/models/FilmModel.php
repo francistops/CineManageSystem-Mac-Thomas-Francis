@@ -29,8 +29,8 @@ function insert_film($titre, $realisateur, $genre, $annee, $desc)
 {
     $conn = getDBConnection();
     // add error checking later
-    $conn->query("INSERT INTO films (titre,realisateur,genre,annee_sortie,description) 
-                 VALUES ('$titre','$realisateur','$genre','$annee','$desc')");
+    $conn->query("INSERT INTO films (titre,realisateur,genre,annee_sortie,description,img_url) 
+                 VALUES ('$titre','$realisateur','$genre','$annee','$desc','$nom_fichier')");
     return true;
 }
 

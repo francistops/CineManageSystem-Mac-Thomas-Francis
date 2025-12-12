@@ -369,7 +369,7 @@ p, label{
     font-size: 1.5rem;
 }
 nav a{
-    font-size: clamp(4rem, 6vw, 1rem);
+    font-size: 2rem;
     text-decoration: none;
 }
 
