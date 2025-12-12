@@ -4,7 +4,7 @@ require_once(CONTROLLERS_PATH . '/Films.php');
 
 $films = get_films();
 ?>
-
+<div class="wrapper">
 <h1>Dashboard Admin</h1>
 <p>Bonjour, <?= htmlspecialchars($_SESSION['admin_username'] ?? '') ?></p>
 
@@ -25,8 +25,7 @@ $films = get_films();
         </li>
     <?php endforeach; ?>
 </ul>
-
-
+</div>
 <?php
 include __DIR__ . '/../partials/footer.php';
 ?>

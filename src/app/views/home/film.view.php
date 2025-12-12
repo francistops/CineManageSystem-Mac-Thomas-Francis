@@ -5,7 +5,7 @@ require_once(VIEWS_PATH . '/partials/header.php');
 $film = get_film_by_id();
 if (!empty($film)):
 ?>
-
+<div class="wrapper">
 <div class="containterFlexRow">
     <img src="/assets/img/interstellar_temp_poster.png" alt="">
     <div class="alignttextleft">
@@ -30,5 +30,5 @@ if (!empty($film)):
 <?php else: ?>
     <p>Film introuvable.</p>
 <?php endif; ?>
-
+</div>
 <?php require_once(VIEWS_PATH . '/partials/footer.php'); ?>

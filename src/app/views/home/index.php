@@ -3,6 +3,7 @@ require_once(CONTROLLERS_PATH . '/Films.php');
 include_once(VIEWS_PATH . '/partials/header.php');
 $films = get_films();
 ?>
+<div class="wrapper">
 <div class="center">
     
     <div class="containerFlexColumn">
@@ -23,6 +24,6 @@ $films = get_films();
 </ul>
 </div>
 </div>
-
+</div>
 <?php include_once (VIEWS_PATH . '/partials/footer.php'); ?>
 

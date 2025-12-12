@@ -10,6 +10,7 @@
 
 <body>
     <header>
+        <div class="wrapper">
         <img src="assets/img/cineguestlogo.png" alt="logocinemanage.png">
         <nav>
             <?php if (!isset($_SESSION['is_login'])): ?>
@@ -30,7 +31,7 @@
                 <a href="<?php echo BASE_URL; ?>index.php"> temp </a>
             <?php endif; ?>
         </nav>
-        <hr>
+        </div>
     </header>
 
     
