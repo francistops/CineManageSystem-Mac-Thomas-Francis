@@ -27,7 +27,7 @@ function add_film()
         $nom_fichier = $_FILES['imgposter']['name'];
         $destination_temporaire_fichier = $_FILES['imgposter']['tmp_name'];
 
-        $destination_upload = "../uploads/" . $nom_fichier;
+        $destination_upload = __DIR__ . '/../../../uploads/' . $nom_fichier;
 
         move_uploaded_file($destination_temporaire_fichier, $destination_upload);
 

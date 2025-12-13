@@ -25,7 +25,7 @@ function read_film_by_id(int $id)
     return $film;
 }
 
-function insert_film($titre, $realisateur, $genre, $annee, $desc)
+function insert_film($titre, $realisateur, $genre, $annee, $desc, $nom_fichier)
 {
     $conn = getDBConnection();
     // add error checking later
