@@ -7,7 +7,7 @@ if (!empty($film)):
 ?>
 <div class="wrapper">
 <div class="containterFlexRow">
-    <img src="/assets/img/interstellar_temp_poster.png" alt="">
+    <img src="/public/assets/img/uploads<?php echo htmlspecialchars($film['img_url']); ?>" alt="">
     <div class="alignttextleft">
     <h2><?php echo htmlspecialchars($film['titre']); ?></h2>
     <p><strong>Réalisateur :</strong> <?php echo htmlspecialchars($film['realisateur']); ?></p>
