@@ -79,12 +79,6 @@ footer {
 
 /* ========== Main content ========== */
 
-
-img {
-    width: 100px;
-    height: 100px;
-}
-
 h1{
     margin: 10px 0;
 }
@@ -113,6 +107,16 @@ div img{
     aspect-ratio: 9/16;
     object-fit: cover;
 
+}
+img.imgview{
+    max-width: 30vw;
+    margin: 50px;
+    aspect-ratio: 11/16;
+}
+
+ul li img.imgcarte{    
+    max-width: 10vw;
+    aspect-ratio: 2/3;
 }
 
 ul li img{

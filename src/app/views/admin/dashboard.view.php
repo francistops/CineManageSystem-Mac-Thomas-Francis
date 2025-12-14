@@ -12,7 +12,7 @@ $films = get_films();
     <?php foreach ($films as $film): ?>
         <li>
             <a href="<?php echo htmlspecialchars('index.php?action=films&id=' . $film['id']); ?>">
-            <img src="/assets/img/interstellar_temp_poster.png" alt="interstellar_temp_poster.png">
+                <img class="imgcarte" src="/assets/img/uploads/<?php echo rawurlencode(trim($film['img_url'])); ?>" alt="">
                 <h4><?php echo htmlspecialchars($film['titre']) . ' (' . htmlspecialchars($film['annee_sortie']) . ')'; ?></h4>
                 <p><?php echo htmlspecialchars($film['realisateur']); ?> </p>
             

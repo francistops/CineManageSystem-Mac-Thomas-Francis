@@ -34,7 +34,7 @@ function insert_film($titre, $realisateur, $genre, $annee, $desc, $nom_fichier)
     return true;
 }
 
-function update_film($id, $titre, $realisateur, $genre, $annee, $desc): bool
+function update_film($id, $titre, $realisateur, $genre, $annee, $desc, $nom_fichier): bool
 {
     $conn = getDBConnection();
     // add error checking later
@@ -43,7 +43,8 @@ function update_film($id, $titre, $realisateur, $genre, $annee, $desc): bool
                         realisateur='$realisateur',
                         genre='$genre',
                         annee_sortie=$annee,
-                        description='$desc'
+                        description='$desc',
+                        img_url='$nom_fichier'
                     WHERE id=$id");
     return true;
 }

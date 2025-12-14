@@ -7,7 +7,7 @@ if (!empty($film)):
 ?>
 <div class="wrapper">
 <div class="containterFlexRow">
-    <img src="/public/assets/img/uploads<?php echo htmlspecialchars($film['img_url']); ?>" alt="">
+    <div><img class="imgview" src="/assets/img/uploads/<?php echo rawurlencode(trim($film['img_url'])); ?>" alt=""></div>
     <div class="alignttextleft">
     <h2><?php echo htmlspecialchars($film['titre']); ?></h2>
     <p><strong>Réalisateur :</strong> <?php echo htmlspecialchars($film['realisateur']); ?></p>

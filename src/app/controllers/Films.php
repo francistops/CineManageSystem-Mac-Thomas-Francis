@@ -52,8 +52,17 @@ function edit_film()
         $genre = $_POST['genre'];
         $annee = intval($_POST['annee_sortie']);
         $desc = $_POST['description'];
+        
+        $fichier = $_FILES['imgposter'];
+        $nom_fichier = $_FILES['imgposter']['name'];
+        $destination_temporaire_fichier = $_FILES['imgposter']['tmp_name'];
 
-        update_film($id, $titre, $realisateur, $genre, $annee, $desc);
+        $destination_upload = __DIR__ . '/../../../public/assets/img/uploads/' . $nom_fichier;
+
+        move_uploaded_file($destination_temporaire_fichier, $destination_upload);
+
+
+        update_film($id, $titre, $realisateur, $genre, $annee, $desc, $nom_fichier);
     } else {
         include VIEWS_PATH . '/admin/edit_film.view.php';
         exit;

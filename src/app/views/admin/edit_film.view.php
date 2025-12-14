@@ -11,7 +11,8 @@ $film = get_film_by_id();
     
 <div><img class="bigimg" src="/assets/img/interstellar_temp_poster.png" alt=""></div>
     <div>
-<form class="bg-shadow-off" method="POST">
+<form class="bg-shadow-off" method="POST"  enctype="multipart/form-data">
+    <label>Image du poster: <input type="file" name="imgposter" value="" required></label><br>
     <label>Titre: <input type="text" name="titre" value="<?php echo htmlspecialchars($film['titre']); ?>" required></label><br>
     <label>Réalisateur: <input type="text" name="realisateur" value="<?php echo htmlspecialchars($film['realisateur']); ?>" required></label><br>
     <label>Genre: <input type="text" name="genre" value="<?php echo htmlspecialchars($film['genre']); ?>" required></label><br>
