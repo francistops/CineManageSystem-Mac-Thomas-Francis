@@ -13,7 +13,7 @@ regroupement des éléments attendus pour la livraison finale.
 1. Analyse et préparation de la base de données 
     - Analyser le schéma actuel de la base de données. Mac
     - Proposer les modifications nécessaires afin de supporter les différents modules à développer. Mac
-    - Préparer les scripts de migration et de rollback. Francis
+    - ~~Préparer les scripts de migration et de rollback.~~ Francis
 
 2. Intégration au système existant
     - Intégrer les modifications au backend, à l'interface publique et à la base de données.
@@ -24,7 +24,7 @@ regroupement des éléments attendus pour la livraison finale.
         - optimisation responsive (mobile, tablette, desktop). Thomas
         - Améliorer l'interface publique dans son ensemble. Thomas
 
-        - reservation/location de film (sans salle) asu
+        - reservation/location de film (salles hard coded)
 
 3. Développement du deuxième module **optionnel**
     - Identifier le module prioritaire dans le backlog.

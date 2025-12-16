@@ -3,13 +3,17 @@ require_once __DIR__ . '/../../../config.php';
 require_once MODELS_PATH . '/../models/FilmModel.php';
 
 
-function search_films_by_type() {
-    // check isset
-    $type = $_GET['type'];
-    $query = $_GET['query'];
+function search_films() {
+    $genre = $_GET['genre'] ?? '';
+    $annee = $_GET['annee'] ?? '';
+    $note = $_GET['note'] ?? '';
+    $orderByAnnee = $_GET['orderByAnnee'] ?? '';
 
-    $result = filter_film_by_type($type, $query);
-    include_once VIEWS_PATH . '/home/debug.view.php';
+    $movies = filter_films($genre, $annee, $note, $orderByAnnee);
+
+    echo $movies;
+
+    include VIEWS_PATH . '/home/index.php';
 }
 
 function get_films()

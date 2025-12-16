@@ -14,7 +14,7 @@ $action = $_GET['action'] ?? 'page';
 
 switch ($action) {
     case 'search':
-        search_films_by_type();
+        search_films();
     case 'page':
         break;
     case 'films':

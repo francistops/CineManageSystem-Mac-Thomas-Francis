@@ -1,7 +1,9 @@
 <?php  
 require_once(CONTROLLERS_PATH . '/Films.php');
 include_once(VIEWS_PATH . '/partials/header.php');
+
 $films = get_films();
+echo $movies;
 ?>
 
 <?php if ($_SESSION['is_login'] === true && isset($_SESSION['is_login'])): ?>
@@ -51,5 +53,3 @@ $films = get_films();
 </div>
 
 <?php include_once (VIEWS_PATH . '/partials/footer.php'); ?>
-
-<?php include_once (VIEWS_PATH . '/home/debug.view.php'); ?>
