@@ -4,16 +4,18 @@ require_once MODELS_PATH . '/../models/FilmModel.php';
 
 
 function search_films() {
+    // echo 'in search_films';
     $genre = $_GET['genre'] ?? '';
     $annee = $_GET['annee'] ?? '';
     $note = $_GET['note'] ?? '';
     $orderByAnnee = $_GET['orderByAnnee'] ?? '';
 
+    // add error if not result is returned or invalid
     $movies = filter_films($genre, $annee, $note, $orderByAnnee);
-
-    echo $movies;
-
-    include VIEWS_PATH . '/home/index.php';
+    include_once(VIEWS_PATH . '/partials/header.php');
+    include_once(VIEWS_PATH . '/home/index.php');
+    //include_once(VIEWS_PATH . '/home/search.view.php');
+    include_once(VIEWS_PATH . '/partials/footer.php');
 }
 
 function get_films()

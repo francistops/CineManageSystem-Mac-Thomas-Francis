@@ -16,6 +16,9 @@ switch ($action) {
     case 'search':
         search_films();
     case 'page':
+        if ( isset($_GET['genre']) || isset($_GET['annee']) || isset($_GET['note'])) {
+            search_films();
+        }
         break;
     case 'films':
         require_once(VIEWS_PATH . '/home/film.view.php');

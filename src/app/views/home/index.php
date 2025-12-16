@@ -7,7 +7,9 @@ $films = get_films();
 ?>
 
 <div class="wrapper">
+    <?php include_once(VIEWS_PATH . '/home/search.view.php'); ?>
     <div class="center">
+        
 
         <div class="containerFlexColumn">
             <h2>Films à l'affiche</h2>

@@ -88,9 +88,9 @@ function filter_films($genre,  $annee, $note, $orderbyannee)
 
 
     $result = $conn->query($sql);
-    // foreach ($result->fetch_assoc() as $key => $value) {
+    // foreach ($result as $key => $value) {
     //     var_dump($key, $value);
     //     echo '<br>';
     // }
-    return $result->fetch_assoc();
+    return $result;
 }
