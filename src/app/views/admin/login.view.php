@@ -2,13 +2,12 @@
 include __DIR__ . '/../partials/header.php';
 ?>
 
-<div style="height:200px;"></div>
 <div class="bgimginterieurcine">
-<div class="smallwhitebox">    
     <div class="containterFlexCol">
-<h1>Connexion Administrateur</h1>
 
 <form class = "bg-shadow-off" method="POST" action="admin.php?action=login">
+    
+    <h1>Connexion Administrateur</h1>
     <div>
         <label for="username">Nom d'utilisateur :</label>
         <input type="text" id="username" name="username">
@@ -32,8 +31,6 @@ include __DIR__ . '/../partials/header.php';
     <a href="inscription.php" class="btn2">s'inscrire</a>
     </div>
 </form>
-</div>
-</div>
 </div>
 
 <?php
