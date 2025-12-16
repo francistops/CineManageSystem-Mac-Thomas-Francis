@@ -40,21 +40,23 @@
 ?>
 <br>
 <ul>
-    <?php foreach ($movies as $movie): ?>
-        <li>
-            <a href="<?php echo htmlspecialchars('index.php?action=films&id=' . $movie['id']); ?>">
-                <!-- code que j'avais pour les image a revoir-->
-                <img
-                    <?php if (isset($movie['img_url']) && is_file($movie['img_url'])): ?>
-                    src="<?php echo $movie['img_url']; ?>"
-                    alt="Affiche de <?php echo htmlspecialchars($movie['titre']); ?>
+    <?php if (isset($movies)): ?>
+        <?php foreach ($movies as $movie): ?>
+            <li>
+                <a href="<?php echo htmlspecialchars('index.php?action=films&id=' . $movie['id']); ?>">
+                    <!-- code que j'avais pour les image a revoir-->
+                    <img
+                        <?php if (isset($movie['img_url']) && is_file($movie['img_url'])): ?>
+                        src="<?php echo $movie['img_url']; ?>"
+                        alt="Affiche de <?php echo htmlspecialchars($movie['titre']); ?>
                                 <?php else: ?>
                                 src=" /assets/img/not_found.png" alt="Image non trouvée"
-                    <?php endif; ?> />
+                        <?php endif; ?> />
 
-                <h4>
-                    <?= htmlspecialchars($movie['titre']) ?>
-                </h4>
-        </li>
-    <?php endforeach; ?>
+                    <h4>
+                        <?= htmlspecialchars($movie['titre']) ?>
+                    </h4>
+            </li>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </ul>
