@@ -5,6 +5,8 @@ require_once(VIEWS_PATH . '/partials/header.php');
 $film = get_film_by_id();
 if (!empty($film)):
 ?>
+
+<div style="height:200px;"></div>
 <div class="wrapper">
 <div class="containterFlexRow">
     <div><img class="imgview" src="/assets/img/uploads/<?php echo rawurlencode(trim($film['img_url'])); ?>" alt=""></div>

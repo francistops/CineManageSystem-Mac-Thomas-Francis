@@ -3,12 +3,14 @@ require_once(CONTROLLERS_PATH . '/Films.php');
 include_once(VIEWS_PATH . '/partials/header.php');
 $films = get_films();
 ?>
+
+<div style="height:200px;"></div>
 <div class="wrapper">
 <div class="center">
     
     <div class="containerFlexColumn">
 <h2>Liste des films</h2>
-<ul>
+<ul class="cartes">
     <?php foreach ($films as $film): ?>
         <li>
             <a href="<?php echo htmlspecialchars('index.php?action=films&id=' . $film['id']); ?>">
