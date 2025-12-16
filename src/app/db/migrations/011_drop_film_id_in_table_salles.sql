@@ -1,0 +1,1 @@
+alter table salles drop COLUMN film_id
