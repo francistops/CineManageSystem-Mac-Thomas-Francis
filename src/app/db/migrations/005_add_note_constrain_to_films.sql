@@ -1,0 +1,1 @@
+ALTER TABLE films ADD CONSTRAINT chk_notes CHECK (note >= 1 AND note <= 5)

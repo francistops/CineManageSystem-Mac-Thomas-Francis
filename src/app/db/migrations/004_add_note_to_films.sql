@@ -1,0 +1,2 @@
+ALTER TABLE films ADD COLUMN note decimal(2,1) NOT NULL DEFAULT 3
+ 

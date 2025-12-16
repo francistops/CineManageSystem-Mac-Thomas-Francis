@@ -1,0 +1,1 @@
+ALTER TABLE films ADD COLUMN img_url VARCHAR(255) NOT NULL DEFAULT 'public/assets/img/image_not_found.webp'
