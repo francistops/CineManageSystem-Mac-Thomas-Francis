@@ -12,16 +12,20 @@
 <body>
     <header>
         <div class="wrapper">
-            <a href=""><img src="assets/img/cineguestlogo.png" alt="logocinemanage.png"></a>
+            <a href="<?php echo BASE_URL; ?>index.php?action=dashboard"><img src="assets/img/cineguestlogo.png" alt="logocinemanage.png"></a>
             
         <nav class="navbar">
             <ul class="nav_menu">
                 <li class="nav_item">
-                    <a href="<?php echo BASE_URL; ?>index.php" class="nav_link">Acceuil</a>
+                    <a href="<?php echo BASE_URL; ?>index.php?action=dashboard" class="nav_link">Tableau de bord</a>
                 </li>
                 <li class="nav_item">
-                    <a href="<?php echo BASE_URL; ?>index.php?action=login" class="nav_link">Connexion</a>
+                    <a href="<?php echo BASE_URL; ?>index.php?action=add_film" class="nav_link">Ajouter un film</a>
                 </li>
+                <li class="nav_item">
+                    <a href="<?php echo BASE_URL; ?>index.php?action=logout" class="nav_link">Se déconnecter</a>
+                </li>
+                
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>

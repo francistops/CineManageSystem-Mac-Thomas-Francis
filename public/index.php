@@ -26,6 +26,9 @@ switch ($action) {
     case 'user':
         require_once(VIEWS_PATH . '/admin/profil.php');
         break;
+    case 'add_film':
+        require_once(VIEWS_PATH . '/admin/add_film.view.php');
+        exit;
     case 'login':
     case 'dashboard':
     case 'logout':

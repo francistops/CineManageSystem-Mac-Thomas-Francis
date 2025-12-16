@@ -66,9 +66,57 @@ nav a {
     transition: color 0.3s ease;
 }
 
+
+/*new header*/
+header .wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+li.nav_item{
+list-style: none;
+    box-shadow: none;
+}
+a.nav_link{
+    
+    color: var(--Gris-Fonce);
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
 nav a:hover {
     color: var(--Gris-Fonce-hover);
 }
+.navbar{
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    flex-direction: column;
+}
+
+.nav_menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+.hamburger{
+    display: none;
+}
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--Gris-Fonce);
+}
+
 
 /* ========== Footer ========== */
 footer {
@@ -117,6 +165,7 @@ img.imgview{
 ul li img.imgcarte{    
     max-width: 10vw;
     aspect-ratio: 2/3;
+    object-fit: contain;
 }
 
 ul li img{
@@ -366,6 +415,14 @@ a:hover {
     color: var(--Orange-Popcorn);
 }
 
+/*footer*/
+footer{
+    margin-top: 200px;
+}
+/*top*/
+div.spacetop{
+    height: 100px;
+}
 /* ========== Responsive ========== */
 
 /*600px 601px 768px 992px 1200px*/
@@ -422,10 +479,6 @@ ul{
     justify-content: center;
     flex-direction: column;
 }
-div.center{
-    display: flex;
-    align-items: center;
-}
 ul li{
     margin: 0;
 }
@@ -466,6 +519,51 @@ div.note img {
     width: 50px !important;
     height: 50px !important;
 }
+
+/*newnav*/
+ul .cartes{
+    margin-top: 100px;
+}
+
+.hamburger{
+    display: block;
+}
+
+.hamburger.active .bar:nth-child(2){
+    opacity: 0;
+}
+.hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+}
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.nav_menu{
+    position: fixed;
+    left: -100%;
+    top: 90px;
+    gap: 0;
+    flex-direction: column;
+    background-color: var(--Blanc-Casse);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;    
+}
+
+.nav_item{
+    margin: 16px 0;
+}
+
+.nav_menu.active{
+    left: 0;
+}
+
 }
 
 @media only screen and (min-width:601px) and (orientation: portrait){
@@ -514,10 +612,6 @@ ul{
     justify-content: center;
     flex-direction: column;
 }
-div.center{
-    display: flex;
-    align-items: center;
-}
 ul li{
     margin: 0;
 }
@@ -557,6 +651,46 @@ div.whitebox{
 div.note img {
     width: 50px !important;
     height: 50px !important;
+}
+
+/*newnav*/
+.hamburger{
+    display: block;
+}
+
+.hamburger.active .bar:nth-child(2){
+    opacity: 0;
+}
+.hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+}
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.nav_menu{
+    position: fixed;
+    left: -100%;
+    top: 90px;
+    gap: 0;
+    flex-direction: column;
+    background-color: var(--Blanc-Casse);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;    
+}
+
+.nav_item{
+    margin: 16px 0;
+}
+
+.nav_menu.active{
+    left: 0;
 }
 
 }
@@ -606,10 +740,6 @@ ul{
     justify-content: center;
     flex-direction: column;
 }
-div.center{
-    display: flex;
-    align-items: center;
-}
 ul li{
     margin: 0;
 }
@@ -646,6 +776,46 @@ div.whitebox{
 div.note img {
     aspect-ratio: 1/1;
 }
+/*newnav*/
+.hamburger{
+    display: block;
+}
+
+.hamburger.active .bar:nth-child(2){
+    opacity: 0;
+}
+.hamburger.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+}
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.nav_menu{
+    position: fixed;
+    left: -100%;
+    top: 90px;
+    gap: 0;
+    flex-direction: column;
+    background-color: var(--Blanc-Casse);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;    
+}
+
+.nav_item{
+    margin: 16px 0;
+}
+
+.nav_menu.active{
+    left: 0;
+}
+
 }
 @media only screen and (min-width:992px) and (orientation: portrait){
 nav a{

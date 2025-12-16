@@ -2,6 +2,7 @@
 include __DIR__ . '/../partials/header.php';
 ?>
 
+<div style="height:200px;"></div>
 <div class="bgimginterieurcine">
 <div class="smallwhitebox">    
     <div class="containterFlexCol">
