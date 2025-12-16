@@ -1,3 +1,5 @@
+
+<div>
 <form method="get" action="/index.php?action=search">
     <input type="text"
         name="genre"
@@ -33,7 +35,6 @@
 
     <button type="submit">Recherche</button>
 </form>
-
 <?php
 // echo 'movies';
 // var_dump($movies);
@@ -60,3 +61,5 @@
         <?php endforeach; ?>
     <?php endif; ?>
 </ul>
+
+</div>
