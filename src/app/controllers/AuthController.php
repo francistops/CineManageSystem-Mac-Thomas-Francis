@@ -1,6 +1,7 @@
 <?php
 
 require_once APP_PATH . '/models/UserModel.php';
+require_once APP_PATH . '/helper/utils.php';
 
 function adminLogin(): void
 {
@@ -24,10 +25,13 @@ function adminLogin(): void
     if ($username === '' || $password === '') {
         $errors[] = "Le nom d'utilisateur et le mot de passe sont obligatoires.";
     } else {
-        if (checkAdmin($username, $password)) {
+        $admin = checkAdmin($username, $password);
+        //var_dump($admin);
+        if ($admin) {
             // Auth OK
             $_SESSION['is_login'] = true;
-            $_SESSION['admin_username'] = $username;
+            $_SESSION['admin_username'] = $admin['nom_utilisateur'];
+            $_SESSION['admin_role'] = $admin['role'];
 
             header('Location: admin.php?action=dashboard');
             exit;
@@ -49,10 +53,7 @@ function adminLogin(): void
 function adminLogout(): void
 {
     $_SESSION = [];
-    /*if (session_id() !== '') {
-        session_destroy();
-    }*/
-        session_destroy();
+    session_destroy();
 
     header('Location: admin.php?action=login');
     exit;
@@ -63,7 +64,7 @@ function adminLogout(): void
  */
 function dashboard(): void
 {
-    if ($_SESSION['is_login'] !== true) {
+    if ($_SESSION['is_login'] !== true && !checkRole('admin')) {
         header('Location: admin.php?action=login');
         exit;
     }

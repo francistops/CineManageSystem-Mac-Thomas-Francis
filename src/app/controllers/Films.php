@@ -1,9 +1,11 @@
 <?php
 require_once __DIR__ . '/../../../config.php';
 require_once MODELS_PATH . '/../models/FilmModel.php';
+require_once APP_PATH . '/helper/utils.php';
 
 
-function search_films() {
+function search_films()
+{
     // echo 'in search_films';
     $genre = $_GET['genre'] ?? '';
     $annee = $_GET['annee'] ?? '';
@@ -32,6 +34,10 @@ function get_film_by_id()
 
 function add_film()
 {
+    if ($_SESSION['is_login'] !== true && !checkRole('admin')) {
+        header('Location: admin.php?action=login');
+        die('<h2>Accès Refusé</h2>');
+    }
     // check for out of range inputs eg: date
     if (isset($_POST['add'])) {
         $titre = $_POST['titre'];
@@ -61,6 +67,11 @@ function add_film()
 
 function edit_film()
 {
+    if ($_SESSION['is_login'] !== true && !checkRole('admin')) {
+        header('Location: admin.php?action=login');
+        die('<h2>Accès Refusé</h2>');
+    }
+
     $id = intval($_GET['id']);
     if (isset($_POST['update']) && isset($_GET['id'])) {
         $titre = $_POST['titre'];
@@ -68,7 +79,7 @@ function edit_film()
         $genre = $_POST['genre'];
         $annee = intval($_POST['annee_sortie']);
         $desc = $_POST['description'];
-        
+
         $fichier = $_FILES['imgposter'];
         $nom_fichier = $_FILES['imgposter']['name'];
         $destination_temporaire_fichier = $_FILES['imgposter']['tmp_name'];
@@ -92,9 +103,12 @@ function edit_film()
 
 function remove_film(): bool
 {
+    if ($_SESSION['is_login'] !== true && !checkRole('admin')) {
+        header('Location: admin.php?action=login');
+        die('<h2>Accès Refusé</h2>');
+    }
     $id = intval($_GET['id']);
     delete_film($id);
-    // some security check
     header('Location: admin.php?action=dashboard');
     exit;
 }
