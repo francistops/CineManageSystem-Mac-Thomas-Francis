@@ -1,7 +1,7 @@
 <?php
 $protocol = isset($_SERVER['HTTPS']) &&
     $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
-$base_url = $protocol . 'localhost:3000' . '/';
+$base_url = $protocol . $_SERVER['HTTP_HOST'] . '/';
 
 // Paramètres de connexion à MySQL
 define('DB_HOST', 'CineManageSystem-db');

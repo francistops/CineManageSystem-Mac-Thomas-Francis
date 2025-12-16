@@ -13,22 +13,14 @@
         <div class="wrapper">
             <img src="assets/img/cineguestlogo.png" alt="logocinemanage.png">
             <nav>
+                <?php $_SESSION['is_login'] ?? ''; ?>
                 <a href="<?php echo BASE_URL; ?>index.php"> Accueil </a>
-                <?php if (!isset($_SESSION['is_login'])): ?>
-                    <?php if ($_SESSION['is_login'] === false): ?>
-                        <a href="<?php echo BASE_URL; ?>index.php?action=login"> Connexion Administrateur </a>
-
-                    <?php else: ?>
-                        <a href="<?php echo BASE_URL; ?>index.php?action=login"> Accueil </a>
-
-                        <a href="<?php echo BASE_URL; ?>index.php?action=dashboard"> Tableau de bord </a>
-
-                        <a href="<?php echo BASE_URL; ?>admin.php?action=add"> Ajouter un film </a>
-
-                        <a href="<?php echo BASE_URL; ?>admin.php?action=logout"> Se déconnecter </a>
-
-                        <a href="<?php echo BASE_URL; ?>index.php"> temp </a>
-                    <?php endif; ?>
+                <?php if (!isset($_SESSION['is_login']) || $_SESSION['is_login'] == false ): ?>
+                    <a href="<?php echo BASE_URL; ?>index.php?action=login"> Connexion Administrateur </a>
+                <?php elseif ($_SESSION['is_login']): ?>
+                    <a href="<?php echo BASE_URL; ?>index.php?action=dashboard"> Tableau de bord </a>
+                    <a href="<?php echo BASE_URL; ?>admin.php?action=add"> Ajouter un film </a>
+                    <a href="<?php echo BASE_URL; ?>admin.php?action=logout"> Se déconnecter </a>
                 <?php endif; ?>
             </nav>
         </div>
