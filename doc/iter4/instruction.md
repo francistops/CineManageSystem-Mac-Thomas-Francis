@@ -13,8 +13,8 @@ todo: **mettre les tâches de tout les iteration et assuré la prise en charge.*
 regroupement des éléments attendus pour la livraison finale.
 
 1. Analyse et préparation de la base de données
-   - Analyser le schéma actuel de la base de données. Mac
-   - Proposer les modifications nécessaires afin de supporter les différents modules à développer. Mac Francis
+   - ~~Analyser le schéma actuel de la base de données.~~ Mac
+   - ~~Proposer les modifications nécessaires afin de supporter les différents modules à développer.~~ Mac Francis
    - ~~Préparer les scripts de migration et de rollback.~~ Francis
 
 2. Intégration au système existant

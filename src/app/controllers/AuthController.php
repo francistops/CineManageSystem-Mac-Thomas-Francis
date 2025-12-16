@@ -72,3 +72,14 @@ function dashboard(): void
     // Pour l’instant on peut afficher une vue simple:
     require VIEWS_PATH . '/admin/dashboard.view.php';
 }
+
+function programmation(): void
+{
+    if ($_SESSION['is_login'] !== true && !checkRole('admin')) {
+        header('Location: admin.php?action=login');
+        exit;
+    }
+
+    // Pour l’instant on peut afficher une vue simple:
+    require VIEWS_PATH . '/admin/programmation.view.php';
+}
