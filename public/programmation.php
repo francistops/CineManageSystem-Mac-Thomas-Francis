@@ -12,7 +12,7 @@ if (!isset($_SESSION['is_login'])) {
 }
 
 switch ($action) {
-    case 'dashboard':
+    case 'programmations':
         get_programmations();
         break;
 
@@ -27,7 +27,9 @@ switch ($action) {
     case 'delete':
         remove_programmation();
         break;
-
+    case 'programmationid':
+        require_once(VIEWS_PATH . '/home/programmation.view.php');
+        exit();
     default:
         programmation();
 }

@@ -31,6 +31,9 @@ switch ($action) {
     case 'logout':
         redirect("admin.php?action=$action");
         exit;
+    case 'programmation':
+        redirect("programmation.php?action=$action");
+        exit;
     default:
         http_response_code(404);
         require '404.php';
