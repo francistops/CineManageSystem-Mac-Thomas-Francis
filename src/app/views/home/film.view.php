@@ -5,9 +5,9 @@ require_once(VIEWS_PATH . '/partials/header.php');
 $film = get_film_by_id();
 if (!empty($film)):
 ?>
-
+<div class="wrapper">
 <div class="containterFlexRow">
-    <img src="/assets/img/interstellar_temp_poster.png" alt="">
+    <div><img class="imgview" src="/assets/img/uploads/<?php echo rawurlencode(trim($film['img_url'])); ?>" alt=""></div>
     <div class="alignttextleft">
     <h2><?php echo htmlspecialchars($film['titre']); ?></h2>
     <p><strong>Réalisateur :</strong> <?php echo htmlspecialchars($film['realisateur']); ?></p>
@@ -20,12 +20,15 @@ if (!empty($film)):
 </div>
 <div class="containterFlexCol">
     <h3>AJOUTEZ UNE NOTE ICI!</h3>
-    <li><img src="/assets/img/star.svg" alt=""> 
+    <div class="note">
+        
+    <li ><img src="/assets/img/star.svg" alt=""> 
 <img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt="">
 </li>
+    </div>
 </div>
 <?php else: ?>
     <p>Film introuvable.</p>
 <?php endif; ?>
-
+</div>
 <?php require_once(VIEWS_PATH . '/partials/footer.php'); ?>

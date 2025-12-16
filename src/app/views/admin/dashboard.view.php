@@ -4,7 +4,7 @@ require_once(CONTROLLERS_PATH . '/Films.php');
 
 $films = get_films();
 ?>
-
+<div class="wrapper">
 <h1>Dashboard Admin</h1>
 <p>Bonjour, <?= htmlspecialchars($_SESSION['admin_username'] ?? '') ?></p>
 
@@ -12,9 +12,9 @@ $films = get_films();
     <?php foreach ($films as $film): ?>
         <li>
             <a href="<?php echo htmlspecialchars('index.php?action=films&id=' . $film['id']); ?>">
-            <img src="/assets/img/interstellar_temp_poster.png" alt="interstellar_temp_poster.png">
+                <img class="imgcarte" src="/assets/img/uploads/<?php echo rawurlencode(trim($film['img_url'])); ?>" alt="">
                 <h4><?php echo htmlspecialchars($film['titre']) . ' (' . htmlspecialchars($film['annee_sortie']) . ')'; ?></h4>
-                <?php echo htmlspecialchars($film['realisateur']); ?>
+                <p><?php echo htmlspecialchars($film['realisateur']); ?> </p>
             
             <p class="desc"><?php echo  htmlspecialchars($film['description']); ?></p>            
             </a>
@@ -25,8 +25,7 @@ $films = get_films();
         </li>
     <?php endforeach; ?>
 </ul>
-
-
+</div>
 <?php
 include __DIR__ . '/../partials/footer.php';
 ?>

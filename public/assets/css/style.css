@@ -34,26 +34,28 @@ body {
     background-color: var(--Blanc-Casse);
     color: var(--Gris-Fonce);
     line-height: 1.6;
-    padding: 20px;
+}
+/*wrapper*/
+
+.wrapper{
+     max-width: clamp(600px, 80vw, 1200px);   
+    margin: 0 auto;   
 }
 
 /* ========== Header ========== */
 header {
     background-color: var(--Blanc-Casse);
     color: var(--Bleu-Miuit);
-    padding: 20px;
+    padding: 20px 0;
     border-radius: 8px;
-    margin-bottom: 30px;
+    box-shadow: 0 10px 5px -5px rgba(0,0,0,0.5);
+    
 }
 
-header h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
 
-img{
-    width: 150px;
-    height: 75px;
+header .wrapper img{
+    aspect-ratio: 4/2;
+    object-fit: cover;
 }
 
 nav a {
@@ -76,9 +78,13 @@ footer {
 }
 
 /* ========== Main content ========== */
+
+h1{
+    margin: 10px 0;
+}
 h2 {
     color: var(--Gris-Fonce);
-    margin-bottom: 20px;
+    margin: 10px;
 }
 h3, h4{
     font: var(--typo-titre);
@@ -98,16 +104,32 @@ p {
     margin-bottom: 10px;
 }
 div img{    
-    min-width: 225px;
-    min-height: 300px;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+
+}
+img.imgview{
+    max-width: 30vw;
+    margin: 50px;
+    aspect-ratio: 11/16;
+}
+
+ul li img.imgcarte{    
+    max-width: 10vw;
+    aspect-ratio: 2/3;
 }
 
 ul li img{
-    min-width: 225px;
-    min-height: 300px;
+    aspect-ratio: 9/16;
+    object-fit: cover;
 }
 ul{
-    display: flex;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(
+        min(20rem, 100%),
+        1fr
+    ));
 }
 ul li{
     display: flex;
@@ -285,7 +307,7 @@ form textarea {
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1px solid var(--Gris-Fonce);
+    border: none;
     border-radius: 5px;
     font-size: 1em;
     transition: border 0.3s;
@@ -345,16 +367,312 @@ a:hover {
 }
 
 /* ========== Responsive ========== */
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
 
-    table, th, td {
-        font-size: 0.9em;
-    }
+/*600px 601px 768px 992px 1200px*/
+h2 {
+    font-size: 2rem;
+}
+h3, h4{
+    font-size: 2rem;
+}
 
-    header h1 {
-        font-size: 1.5em;
-    }
+p, label{
+    font-size: 1.5rem;
+}
+nav a{
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+form button{
+    font-size: 2rem;
+    padding: 20px 32px;
+}
+
+/*portrait*/
+@media only screen and (max-width:600px) and (orientation: portrait){
+/*fix font sizing*/
+
+
+.btn1{
+    font-size: 2rem;
+    padding: 20px 32px;
+
+}
+.btn2{
+    font-size: 2rem;
+    padding: 20px 32px;
+
+}
+nav a{    
+    text-decoration: underline;
+    font-size: 3rem;
+}
+
+p.desc{
+    max-width: 230px;
+}
+
+
+/*fix listes de films*/
+ul{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+div.center{
+    display: flex;
+    align-items: center;
+}
+ul li{
+    margin: 0;
+}
+/*fix forms*/
+
+.bgimgvieuxcine{
+    width: 600px;
+    height: 1600px;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+.bgimginterieurcine{
+    width: 600px;
+    height: unset;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+div.whitebox{
+    max-width: 600px;
+}
+
+.bigimg{    
+    max-width: 300px;
+    min-height: 500px;
+}
+.containterFlexRow{
+    flex-direction: column;
+}
+
+div.note img {
+    width: 50px !important;
+    height: 50px !important;
+}
+}
+
+@media only screen and (min-width:601px) and (orientation: portrait){
+    /*fix font sizing*/
+
+h2 {
+    font-size: 2rem;
+}
+h3, h4{
+    font-size: 2rem;
+}
+
+p, label{
+    font-size: 1.5rem;
+}
+nav a{
+    text-decoration: underline;
+}
+
+form button{
+    font-size: 2rem;
+    padding: 20px 32px;
+}
+
+.btn1{
+    font-size: 2rem;
+    padding: 20px 32px;
+
+}
+.btn2{
+    font-size: 2rem;
+    padding: 20px 32px;
+
+}
+
+p.desc{
+    max-width: 230px;
+}
+
+
+/*fix listes de films*/
+ul{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+div.center{
+    display: flex;
+    align-items: center;
+}
+ul li{
+    margin: 0;
+}
+/*fix forms*/
+
+.bgimgvieuxcine{
+    width: 600px;
+    height: 1600px;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+.bgimginterieurcine{
+    width: 600px;
+    height: unset;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+div.whitebox{
+    max-width: 600px;
+}
+
+.bigimg{    
+    max-width: 300px;
+    min-height: 500px;
+}
+.containterFlexRow{
+    flex-direction: column;
+}
+
+div.note img {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+}
+@media only screen and (min-width:768px) and (orientation: portrait){
+/*fix font sizing*/
+
+h2 {
+    font-size: 4rem;
+}
+h3, h4{
+    font-size: 4rem;
+}
+
+p, label{
+    font-size: 3rem;
+}
+nav a{
+    font-size: 3rem;
+}
+
+form button{
+    font-size: 4rem;
+    padding: 20px 32px;
+}
+
+.btn1{
+    font-size: 4rem;
+    padding: 20px 32px;
+
+}
+.btn2{
+    font-size: 4rem;
+    padding: 20px 32px;
+
+}
+
+p.desc{
+    max-width: 230px;
+}
+
+
+/*fix listes de films*/
+ul{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+div.center{
+    display: flex;
+    align-items: center;
+}
+ul li{
+    margin: 0;
+}
+/*fix forms*/
+
+.bgimgvieuxcine{
+    width: 768px;
+    height: 1600px;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+
+.bgimginterieurcine{
+    width: 768px;
+    height: unset;
+    background-image: none;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+div.whitebox{
+    max-width: 768px;
+}
+
+
+.containterFlexRow{
+    flex-direction: column;
+}
+
+div.note img {
+    aspect-ratio: 1/1;
+}
+}
+@media only screen and (min-width:992px) and (orientation: portrait){
+nav a{
+    text-decoration: none;
+}
+}
+@media only screen and (min-width:1200px) and (orientation: portrait){
+
+}
+
+
+
+/*landscape*/
+@media only screen and (min-width:1200px) and (orientation: landscape){
+
+}
+@media only screen and (min-width:992px) and (orientation: landscape){
+nav a{
+    text-decoration: none;
+}
+}
+@media only screen and (min-width:768px) and (orientation: landscape){
+
+}
+@media only screen and (min-width:601px) and (orientation: landscape){
+
+}
+@media only screen and (max-width:600px) and (orientation: landscape){
+
 }

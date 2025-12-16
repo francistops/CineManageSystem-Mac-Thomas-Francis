@@ -49,9 +49,10 @@ function adminLogin(): void
 function adminLogout(): void
 {
     $_SESSION = [];
-    if (session_id() !== '') {
+    /*if (session_id() !== '') {
         session_destroy();
-    }
+    }*/
+        session_destroy();
 
     header('Location: admin.php?action=login');
     exit;

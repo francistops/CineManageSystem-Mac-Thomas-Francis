@@ -1,4 +1,5 @@
 
+DROP DATABASE IF EXISTS cinemanage_db;
 CREATE DATABASE IF NOT EXISTS cinemanage_db;
 USE cinemanage_db;
 
@@ -24,7 +25,9 @@ CREATE TABLE IF NOT EXISTS films (
 CREATE Table if NOT EXISTS salles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL,
-    capacite INT NOT NULL
+    capacite INT NOT NULL,
+    film_id INT,
+    FOREIGN KEY (film_id) REFERENCES films(id)
 );
 
  CREATE TABLE if NOT EXISTS programmations (
