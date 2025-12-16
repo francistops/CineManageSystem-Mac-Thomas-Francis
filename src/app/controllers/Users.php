@@ -1,108 +1,50 @@
 <?php
 
 require_once __DIR__ . '/../../../config.php';
+require_once APP_PATH . '/models/UserModel.php';
 
-function register(array $userObj) : bool {
-    return 'ran register';
+/**
+ * Inscription d'un utilisateur.
+ */
+function register(array $userObj): bool
+{
+    //implémenter réellement l'inscription si nécessaire
+    return false;
 }
 
-function login(string $username, string $password) : bool {
-session_start();
-if (isset($_POST['login'])) {
-    $user = trim($_POST['username']);
-    $pass = trim($_POST['password']);
+/**
+ * Tentative de connexion.
+ * Retourne true si les identifiants sont valides, false sinon.
+ */
+function login(string $username, string $password): bool
+{
+    // On réutilise la logique d'admin pour le moment
+    $admin = checkAdmin($username, $password);
 
-    if ($user !== '' && $pass !== '') {
-        // call login model to get data from db
+    return $admin !== null;
+}
 
-        if ($result->num_rows > 0) {
-            $_SESSION['admin'] = $user;
-            header('Location: dashboard.php');
-            exit;
-        } else {
-            $error = "Identifiants incorrects";
-        }
-    } else {
-        $error = "Veuillez remplir tous les champs.";
+/**
+ * Déconnecte l'utilisateur courant (si session active).
+ */
+function logout(): void
+{
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    $_SESSION = [];
+
+    if (session_id() !== '') {
+        session_destroy();
     }
 }
 
-    return 'ran login';
-}
-
-function logout(string $user) : bool {
-    session_start();
-    session_destroy();
-    header('Location: login.php');
-    exit;
-
-    return 'ran logout';
-}
-
-function delete($username) : bool {
-    return 'ran delete';
-}
-
-
-// admin controller functions from template
-require_once MODELS_PATH . '/../models/UserModel.php';
-require_once MODELS_PATH . '/../models/FilmModel.php';
-require_once APP_PATH . '/helper/utils.php';
-
-function adminLogin() {
-    
-    $message = "";
-    if (isset($_POST['login'])) {
-        $user = $_POST['username'];
-        $pass = $_POST['password'];
-        if (checkAdmin($user, $pass)) {
-            $_SESSION['admin'] = $user;
-            $_SESSION['is_login'] = true;
-            redirect("admin.php?action=dashboard");
-        } elseif (empty($user) || empty($pass)) {
-            $message = "Veuillez remplir tous les champs.";
-        } elseif ($_SESSION['is_login'] === true) {
-            redirect("admin.php?action=dashboard");
-        } else {
-            $message = "Identifiants invalides.";
-        }
-    }
-    include VIEWS_PATH . '/admin/login.view.php';
-}
-
-function adminLogout() {
-    session_destroy();
-    redirect("admin.php?action=login");
-}
-
-function dashboard() {
-    if (!isset($_SESSION['admin'])) redirect("admin.php?action=login");
-    echo "Welcome, " . htmlspecialchars($_SESSION['admin']) . "!";
-    $livres = getAllFilm();
-    include VIEWS_PATH . '/admin/dashboard.php';
-}
-
-function addLivreAdmin() {
-    if (!isset($_SESSION['admin'])) redirect("admin.php?action=login");
-    if (isset($_POST['add'])) {
-        addLivre($_POST['titre'], $_POST['auteur'], $_POST['annee']);
-        redirect("admin.php?action=dashboard");
-    }
-    include __DIR__ . '/../views/livres/form.php';
-}
-
-function editLivreAdmin($id) {
-    if (!isset($_SESSION['admin'])) redirect("admin.php?action=login");
-    $livre = getLivreById($id);
-    if (isset($_POST['update'])) {
-        updateLivre($id, $_POST['titre'], $_POST['auteur'], $_POST['annee']);
-        redirect("admin.php?action=dashboard");
-    }
-    include __DIR__ . '/../views/livres/form.php';
-}
-
-function deleteLivreAdmin($id) {
-    if (!isset($_SESSION['admin'])) redirect("admin.php?action=login");
-    deleteLivre($id);
-    redirect("admin.php?action=dashboard");
+/**
+ * Suppression d'un utilisateur
+ */
+function delete(string $username): bool
+{
+    //implémenter la suppression dans la base de données
+    return false;
 }

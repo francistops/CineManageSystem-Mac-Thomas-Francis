@@ -18,41 +18,26 @@ function checkAdmin(string $username, string $password): ?array
     );
 
     if (!$stmt) {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        
-        die("Erreur de préparation de la requête : " . $conn->error);
-=======
+        // En cas de problème de préparation, on renvoie null
         return null;
->>>>>>> Stashed changes
-=======
-        return null;
->>>>>>> Stashed changes
     }
 
     $stmt->bind_param("ss", $username, $password);
     $stmt->execute();
     $result = $stmt->get_result();
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    if (!$admin) {
-      
-=======
-=======
->>>>>>> Stashed changes
-    if ($result && $admin = $result->fetch_assoc()) {
-        return $admin; // contient id, nom_utilisateur, role
+    if ($result && ($admin = $result->fetch_assoc())) {
+        // contient id, nom_utilisateur, role
+        return $admin;
     }
 
     return null;
 }
+
 /**
  * Retourne la liste de tous les administrateurs
  * (id, nom_utilisateur, role).
  */
-
-
 function getAllAdmins(): array
 {
     $conn = getDBConnection();
@@ -86,10 +71,6 @@ function updateAdminRoleById(int $id, string $role): bool
     );
 
     if (!$stmt) {
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         return false;
     }
 

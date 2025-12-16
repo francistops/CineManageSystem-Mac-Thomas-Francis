@@ -1,73 +1,113 @@
 <?php
+
 require_once APP_PATH . '/helper/db_connect.php';
 
-function read_films() : array {
-    $result = $conn->query("SELECT * FROM films ORDER BY id DESC");
-    return 'ran read_film';
+/**
+ * Retourne la connexion à la base de données (mysqli).
+ */
+function film_get_connection(): mysqli
+{
+    return getDBConnection();
 }
 
-function read_film_by_id(int $id): filmObj {
-    $result = $conn->query("SELECT * FROM films WHERE id=$id");
+/**
+ * Récupère tous les films.
+ * Retourne un tableau associatif [ [ 'id' => ..., 'titre' => ..., ... ], ... ]
+ */
+function getAllFilm(): array
+{
+    $conn = film_get_connection();
+
+    $sql = "SELECT * FROM films ORDER BY id DESC";
+    $result = $conn->query($sql);
+
+    if (!$result) {
+        return [];
+    }
+
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
+
+/**
+ * Récupère un film par son ID.
+ * Retourne un tableau associatif ou null si non trouvé.
+ */
+function getFilmById(int $id): ?array
+{
+    $conn = film_get_connection();
+
+    $id = (int) $id;
+    $sql = "SELECT * FROM films WHERE id = $id LIMIT 1";
+    $result = $conn->query($sql);
+
+    if (!$result) {
+        return null;
+    }
+
     $film = $result->fetch_assoc();
-    return 'ran read_film_by_id';
+    return $film ?: null;
 }
 
-function insert_film(array $filmData) : bool {
-    $conn->query("INSERT INTO films (titre,realisateur,genre,annee_sortie,description) 
-                 VALUES ('$titre','$realisateur','$genre','$annee','$desc')");
-    return 'ran insert_film';
+/**
+ * Insère un nouveau film.
+ * $filmData attend les clés : titre, realisateur, genre, annee_sortie, description.
+ */
+function insertFilm(array $filmData): bool
+{
+    $conn = film_get_connection();
+
+    $titre        = $conn->real_escape_string($filmData['titre']        ?? '');
+    $realisateur  = $conn->real_escape_string($filmData['realisateur']  ?? '');
+    $genre        = $conn->real_escape_string($filmData['genre']        ?? '');
+    $annee        = (int) ($filmData['annee_sortie'] ?? 0);
+    $description  = $conn->real_escape_string($filmData['description']  ?? '');
+
+    $sql = "
+        INSERT INTO films (titre, realisateur, genre, annee_sortie, description)
+        VALUES ('$titre', '$realisateur', '$genre', $annee, '$description')
+    ";
+
+    return $conn->query($sql) === true;
 }
 
-function update_film(int $id) : bool {
-    $conn->query("UPDATE films 
-                    SET titre='$titre',
-                        realisateur='$realisateur',
-                        genre='$genre',
-                        annee_sortie='$annee',
-                        description='$desc'
-                    WHERE id=$id");
-    return 'ran update_film';
+/**
+ * Met à jour un film existant.
+ * $filmData a les mêmes clés que insertFilm().
+ */
+function updateFilm(int $id, array $filmData): bool
+{
+    $conn = film_get_connection();
+
+    $id          = (int) $id;
+    $titre       = $conn->real_escape_string($filmData['titre']        ?? '');
+    $realisateur = $conn->real_escape_string($filmData['realisateur']  ?? '');
+    $genre       = $conn->real_escape_string($filmData['genre']        ?? '');
+    $annee       = (int) ($filmData['annee_sortie'] ?? 0);
+    $description = $conn->real_escape_string($filmData['description']  ?? '');
+
+    $sql = "
+        UPDATE films
+        SET titre = '$titre',
+            realisateur = '$realisateur',
+            genre = '$genre',
+            annee_sortie = $annee,
+            description = '$description'
+        WHERE id = $id
+        LIMIT 1
+    ";
+
+    return $conn->query($sql) === true;
 }
 
-function delete_film(int $id) : bool {
-    $conn->query("DELETE FROM films WHERE id=$id");
-    return 'ran delete_film';
-}
+/**
+ * Supprime un film par son ID.
+ */
+function deleteFilm(int $id): bool
+{
+    $conn = film_get_connection();
 
-// Livre Model functions from templatee
+    $id  = (int) $id;
+    $sql = "DELETE FROM films WHERE id = $id LIMIT 1";
 
-function getAllLivres() {
-    global $conn;
-    $res = $conn->query("SELECT * FROM livres ORDER BY id DESC");
-    return $res->fetch_all(MYSQLI_ASSOC);
-}
-
-function getLivreById($id) {
-    global $conn;
-    $id = intval($id);
-    $res = $conn->query("SELECT * FROM livres WHERE id=$id");
-    return $res->fetch_assoc();
-}
-
-function addLivre($titre, $auteur, $annee) {
-    global $conn;
-    $titre = $conn->real_escape_string($titre);
-    $auteur = $conn->real_escape_string($auteur);
-    $annee = intval($annee);
-    $conn->query("INSERT INTO livres (titre,auteur,annee) VALUES ('$titre','$auteur','$annee')");
-}
-
-function updateLivre($id, $titre, $auteur, $annee) {
-    global $conn;
-    $id = intval($id);
-    $titre = $conn->real_escape_string($titre);
-    $auteur = $conn->real_escape_string($auteur);
-    $annee = intval($annee);
-    $conn->query("UPDATE livres SET titre='$titre', auteur='$auteur', annee='$annee' WHERE id=$id");
-}
-
-function deleteLivre($id) {
-    global $conn;
-    $id = intval($id);
-    $conn->query("DELETE FROM livres WHERE id=$id");
+    return $conn->query($sql) === true;
 }
