@@ -18,9 +18,9 @@ CREATE TABLE IF NOT EXISTS films (
     genre VARCHAR(50),
     annee_sortie INT,
     img_url VARCHAR(255),
-    description TEXT
+    description TEXT,
     -- add rating in db
-    note 
+    note decimal(2,1) NOT NULL DEFAULT 3
 );
 
 CREATE Table if NOT EXISTS salles (
