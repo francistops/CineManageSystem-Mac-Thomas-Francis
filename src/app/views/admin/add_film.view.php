@@ -3,6 +3,7 @@ include_once(VIEWS_PATH . '/partials/header_admin.php');
 require_once APP_PATH . '/controllers/Films.php';
 ?>
 
+<div style="height:200px; background-color: #e3ebf3;"></div>
 <div class="bgimgvieuxcine">
 <div class="whitebox">     
     <div class="containerFlexColumn">

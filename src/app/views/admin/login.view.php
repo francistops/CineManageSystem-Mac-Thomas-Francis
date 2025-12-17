@@ -2,6 +2,7 @@
 include __DIR__ . '/../partials/header.php';
 ?>
 
+<div style="height:200px; background-color: #181f2f;"></div>
 <div class="bgimginterieurcine">
     <div class="containterFlexCol">
 
@@ -28,9 +29,10 @@ include __DIR__ . '/../partials/header.php';
 
     <div class="containterFlexRow">
     <button class="btn1" type="submit">Se connecter</button>
-    <a href="inscription.php" class="btn2">s'inscrire</a>
+    <button class="btn2"><a href="inscription.php" >s'inscrire</a></button>
     </div>
 </form>
+</div>
 </div>
 
 <?php

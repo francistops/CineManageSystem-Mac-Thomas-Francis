@@ -24,14 +24,14 @@ echo !empty($film['img_url'])
     </div>
     
 </div>
-<div class="containterFlexCol">
+<div class="containterFlexCol"><!--
     <h3>AJOUTEZ UNE NOTE ICI!</h3>
     <div class="note">
         
     <li ><img src="/assets/img/star.svg" alt=""> 
 <img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt="">
 </li>
-    </div>
+    </div>-->
 </div>
 <?php else: ?>
     <p>Film introuvable.</p>

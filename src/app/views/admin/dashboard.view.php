@@ -5,6 +5,7 @@ require_once(CONTROLLERS_PATH . '/Films.php');
 $films = get_films();
 ?>
 
+<div style="height:200px;"></div>
 <div class="wrapper">
 <div style="height:50px;"></div>
 <h1>Dashboard Admin</h1>
