@@ -4,14 +4,19 @@ require_once APP_PATH . '/controllers/Films.php';
 $film = get_film_by_id();
 ?>
 
-<div style="height:200px; margin:10px;"></div>
 <div class="bgimgvieuxcine">
 <div class="whitebox">    
     <div class="containerFlexColumn">
 <h2>Modifier le film</h2>
 <div class="containterFlexRow">
     
-<div><img class="bigimg" src="/assets/img/interstellar_temp_poster.png" alt=""></div>
+<div><?php 
+if(!empty(trim($film['img_url'] ?? ""))){
+echo '<img class="bigimg" src="/assets/img/uploads/'.trim($film['img_url']).'" alt="">';
+}else{
+    echo '<img class="bigimg" src="/assets/img/uploads/'.'noposter.jfif'.'" alt="">';
+}
+?></div>
     <div>
 <form class="bg-shadow-off" method="POST"  enctype="multipart/form-data">
     <label>Image du poster: <input type="file" name="imgposter" value="" required></label><br>

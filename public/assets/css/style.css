@@ -239,20 +239,26 @@ ul li a:hover{
 
 .whitebox{
     background-color: var(--Blanc-Casse);
-    max-width: 900px;
-    max-height: 900px;
-    min-width: 900px;
-    min-height: 900px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50px;
+    padding: 50px;
+    margin: 50px;
+    
+}
+
+.whitebox h2{
+    text-align: center;
+}
+.whitebox h3{
+    text-align: center;
 }
 
 .bgimgvieuxcine{
     
     width: 2000px;
-    height: 1000px;
+    height: 1300px;
     background-image: url("../img/imagevieuxcineblanc.jpg");
     background-size: cover;
     background-repeat: no-repeat;

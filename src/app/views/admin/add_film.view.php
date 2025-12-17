@@ -3,20 +3,21 @@ include_once(VIEWS_PATH . '/partials/header_admin.php');
 require_once APP_PATH . '/controllers/Films.php';
 ?>
 
-
-<div style="height:200px; margin:10px;"></div>
 <div class="bgimgvieuxcine">
 <div class="whitebox">     
     <div class="containerFlexColumn">
-<h2>Ajouter un film</h2>
 <div class="containterFlexRow">
     
-<div><img class="bigimg" src="/assets/img/interstellar_temp_poster.png" alt="">
-
+<div><img class="bigimg" src="/assets/img/uploads/<?php 
+echo !empty($film['img_url'])
+    ? trim($film['img_url'])
+    : 'noposter.jfif';
+?>" alt="">
 </div>
     <div>
-<h2>Ajouter un film</h2>
 <form class="bg-shadow-off" method="POST" enctype="multipart/form-data">
+    
+    <h2>Ajouter un film</h2>    
     <label>Titre: <input type="text" name="titre" required></label><br>
     <label>Réalisateur: <input type="text" name="realisateur" required></label><br>
     <label>Genre: <input type="text" name="genre" required></label><br>
