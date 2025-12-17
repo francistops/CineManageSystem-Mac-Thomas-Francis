@@ -26,7 +26,7 @@
                         <a href="<?php echo BASE_URL; ?>admin.php?action=add_film" class="nav_link">Ajouter un film</a>
                     </li>
                     <li class="nav_item">
-                        <a href="<?php echo BASE_URL; ?>admin.php?action=add_film" class="nav_link"></a>
+                        <a href="<?php echo BASE_URL; ?>admin.php?action=role" class="nav_link">Gestion d'utilisateur</a>
                     </li>
                     <li class="nav_item">
                         <a href="<?php echo BASE_URL; ?>index.php?action=logout" class="nav_link">Se déconnecter</a>
