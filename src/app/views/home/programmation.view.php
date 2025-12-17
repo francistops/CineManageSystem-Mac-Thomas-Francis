@@ -9,10 +9,10 @@ if (!empty($programmation)):
 <div style="height:200px;"></div>
 <div class="wrapper">
 <div class="containterFlexRow">
-    <h2><?php echo htmlspecialchars($programmation['film']); ?></h2>
-    <p><strong>Salle :</strong> <?php echo htmlspecialchars($programmation['salle']); ?></p>
-    <p><strong>admin :</strong> <?php echo htmlspecialchars($programmation['admin']); ?></p>
-    <p><strong>date debut :</strong> <?php echo $programmation['date_debut']; ?></p>
+    <h2><?php echo htmlspecialchars($programmation['film_id']); ?></h2>
+    <p><strong>Salle :</strong> <?php echo htmlspecialchars($programmation['salle_id']); ?></p>
+    <p><strong>admin :</strong> <?php echo htmlspecialchars($programmation['administrateur_id']); ?></p>
+    <p><strong>date debut :</strong> <?php echo htmlspecialchars($programmation['date_debut']); ?></p>
     <p><strong>Date fin :</strong> <?php echo htmlspecialchars($programmation['date_fin']); ?></p>
     <a href="<?php echo BASE_URL; ?>programmation.php" class="btn2">Retour</a>
 </div>

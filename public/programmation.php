@@ -12,10 +12,10 @@ if (!isset($_SESSION['is_login'])) {
 }
 
 switch ($action) {
-    case 'programmations':
-        get_programmations();
+    case 'programmation':
+        echo "in programmation action";
+        require_once(VIEWS_PATH . '/admin/programmation.view.php');
         break;
-
     case 'add':
         add_programmation();
         break;

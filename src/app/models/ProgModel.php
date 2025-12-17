@@ -6,7 +6,6 @@ function read_programmations()
     echo 'in read programmations';
     $conn = getDBConnection();
     $result = $conn->query("SELECT * FROM programmations");
-    var_dump($result);
     return $result;
 }
 

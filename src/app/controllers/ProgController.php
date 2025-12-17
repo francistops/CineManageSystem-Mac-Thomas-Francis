@@ -3,6 +3,7 @@ require_once __DIR__ . '/../../../config.php';
 require_once MODELS_PATH . '/../models/ProgModel.php';
 require_once APP_PATH . '/helper/utils.php';
 
+//i can really generaly that to be use in film and other.
 
 function search_programmations()
 {
@@ -14,7 +15,7 @@ function search_programmations()
     $date_fin = $_GET['date_fin'] ?? '';
 
     // add error if not result is returned or invalid
-    $movies = filter_programmations($admin, $film, $salle, $date_debut, $date_fin);
+    $filter_programmations = filter_programmations($admin, $film, $salle, $date_debut, $date_fin);
     include_once(VIEWS_PATH . '/partials/header.php');
     include_once(VIEWS_PATH . '/home/index.php');
     //include_once(VIEWS_PATH . '/home/search.prog.view.php');
