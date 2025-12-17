@@ -1,3 +1,10 @@
+
+
+<?php
+include_once VIEWS_PATH . '/partials/header_admin.php';
+require_once MODELS_PATH . '/../models/UserModel.php';
+$admins = getAllAdmins();
+?>
 <h1>Gestion des administrateurs</h1>
 
 <p>
@@ -30,3 +37,6 @@
         </tr>
     <?php endforeach; ?>
 </table>
+
+
+<?php include_once(VIEWS_PATH . '/partials/footer.php'); ?>
