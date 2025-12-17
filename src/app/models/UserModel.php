@@ -26,3 +26,52 @@ function checkAdmin(string $username, string $password)
 
     return $admin;
 }
+
+
+
+function getAllAdmins(): array
+{
+    $conn = getDBConnection();
+
+    $sql = "SELECT id, nom_utilisateur, role FROM administrateurs ORDER BY id";
+    $result = $conn->query($sql);
+
+    if (!$result) {
+        return [];
+    }
+
+    $admins = [];
+    while ($row = $result->fetch_assoc()) {
+        $admins[] = $row;
+    }
+
+    return $admins;
+}
+
+function updateAdminRoleById(int $id, string $role): bool
+{
+    $conn = getDBConnection();
+
+    $stmt = $conn->prepare(
+        "UPDATE administrateurs 
+         SET role = ? 
+         WHERE id = ?"
+    );
+
+    if (!$stmt) {
+        return false;
+    }
+
+    $stmt->bind_param("si", $role, $id);
+
+    return $stmt->execute();
+    if (!$admin) {
+
+        return false;
+    }
+
+    return $admin['mot_de_passe'] === $password;
+}
+
+
+

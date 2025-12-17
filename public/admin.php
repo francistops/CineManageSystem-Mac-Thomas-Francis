@@ -35,6 +35,9 @@ switch ($action) {
     case 'delete':
         remove_film();
         break;
+    case 'role':
+        ();
+        break;
 
     default:
         dashboard();

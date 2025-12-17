@@ -17,13 +17,16 @@
             <nav class="navbar">
                 <ul class="nav_menu">
                     <li class="nav_item">
-                        <a href="<?php echo BASE_URL; ?>index.php?action=dashboard" class="nav_link">Tableau de bord</a>
+                        <a href="<?php echo BASE_URL; ?>admin.php?action=dashboard" class="nav_link">Tableau de bord</a>
                     </li>
                     <li class="nav_item">
-                        <a href="<?php echo BASE_URL; ?>index.php?action=programmation" class="nav_link">Programmations</a>
+                        <a href="<?php echo BASE_URL; ?>admin.php?action=programmation" class="nav_link">Programmations</a>
                     </li>
                     <li class="nav_item">
-                        <a href="<?php echo BASE_URL; ?>index.php?action=add_film" class="nav_link">Ajouter un film</a>
+                        <a href="<?php echo BASE_URL; ?>admin.php?action=add_film" class="nav_link">Ajouter un film</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="<?php echo BASE_URL; ?>admin.php?action=add_film" class="nav_link"></a>
                     </li>
                     <li class="nav_item">
                         <a href="<?php echo BASE_URL; ?>index.php?action=logout" class="nav_link">Se déconnecter</a>
