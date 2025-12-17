@@ -36,7 +36,7 @@ switch ($action) {
         remove_film();
         break;
     case 'role':
-        ();
+        role();
         break;
 
     default:

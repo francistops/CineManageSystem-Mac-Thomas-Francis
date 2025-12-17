@@ -83,3 +83,15 @@ function programmation(): void
     // Pour l’instant on peut afficher une vue simple:
     require VIEWS_PATH . '/admin/programmation.view.php';
 }
+
+function role(): void
+{
+    if ($_SESSION['is_login'] !== true && !checkRole('admin')) {
+        header('Location: admin.php?action=login');
+        exit;
+    }
+
+
+    // Pour l’instant on peut afficher une vue simple:
+    require VIEWS_PATH . '/admin/admins.view.php';
+}
