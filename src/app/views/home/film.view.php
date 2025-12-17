@@ -9,7 +9,11 @@ if (!empty($film)):
 <div style="height:200px;"></div>
 <div class="wrapper">
 <div class="containterFlexRow">
-    <div><img class="imgview" src="/assets/img/uploads/<?php echo rawurlencode(trim($film['img_url'])); ?>" alt=""></div>
+    <img class="bigimg" src="/assets/img/uploads/<?php 
+echo !empty($film['img_url'])
+    ? trim($film['img_url'])
+    : 'noposter.jfif';
+?>" alt="">
     <div class="alignttextleft">
     <h2><?php echo htmlspecialchars($film['titre']); ?></h2>
     <p><strong>Réalisateur :</strong> <?php echo htmlspecialchars($film['realisateur']); ?></p>
@@ -20,14 +24,14 @@ if (!empty($film)):
     </div>
     
 </div>
-<div class="containterFlexCol">
+<div class="containterFlexCol"><!--
     <h3>AJOUTEZ UNE NOTE ICI!</h3>
     <div class="note">
         
     <li ><img src="/assets/img/star.svg" alt=""> 
 <img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt=""><img src="/assets/img/star.svg" alt="">
 </li>
-    </div>
+    </div>-->
 </div>
 <?php else: ?>
     <p>Film introuvable.</p>
