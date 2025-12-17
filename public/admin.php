@@ -36,6 +36,15 @@ switch ($action) {
         remove_film();
         break;
 
+    case 'manage_admins':
+        manageAdmins();
+        break;
+
+    case 'update_admin_role':
+        updateAdminRole();
+        break;
+
     default:
         dashboard();
+        break;
 }

@@ -2,12 +2,9 @@
 include __DIR__ . '/../partials/header.php';
 ?>
 
-<div class="bgimginterieurcine">
-    <div class="containterFlexCol">
+<h1>Connexion Administrateur</h1>
 
-<form class = "bg-shadow-off" method="POST" action="admin.php?action=login">
-    
-    <h1>Connexion Administrateur</h1>
+<form method="POST" action="admin.php?action=login">
     <div>
         <label for="username">Nom d'utilisateur :</label>
         <input type="text" id="username" name="username">
@@ -26,12 +23,8 @@ include __DIR__ . '/../partials/header.php';
         </ul>
     <?php endif; ?>
 
-    <div class="containterFlexRow">
-    <button class="btn1" type="submit">Se connecter</button>
-    <a href="inscription.php" class="btn2">s'inscrire</a>
-    </div>
+    <button type="submit">Se connecter</button>
 </form>
-</div>
 
 <?php
 
