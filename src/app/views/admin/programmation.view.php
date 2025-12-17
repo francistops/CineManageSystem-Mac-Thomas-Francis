@@ -3,6 +3,7 @@ include __DIR__ . '/../partials/header_admin.php';
 require_once(CONTROLLERS_PATH . '/ProgController.php');
 
 $programmations = get_programmations();
+var_dump($programmations);
 ?>
 
 <div class="wrapper">

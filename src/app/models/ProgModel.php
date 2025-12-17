@@ -3,8 +3,10 @@ require_once APP_PATH . '/helper/db_connect.php';
 
 function read_programmations()
 {
+    echo 'in read programmations';
     $conn = getDBConnection();
-    $result = $conn->query("SELECT * FROM programmations ORDER BY annee_sortie DESC");
+    $result = $conn->query("SELECT * FROM programmations");
+    var_dump($result);
     return $result;
 }
 
@@ -61,19 +63,19 @@ function filter_programmations($admin_id,  $film_id, $salle_id)
 
     $condition = "";
     if ($admin_id != "")
-        $condition = " where genre ='$admin_id'";
+        $condition = " where admin_id ='$admin_id'";
     if ($film_id != "") {
         if ($condition == "") {
-            $condition = " where annee_sortie=$film_id ";
+            $condition = " where film_id=$film_id ";
         } else {
-            $condition = $condition . " and annee_sortie=$film_id";
+            $condition = $condition . " and film_id=$film_id";
         }
     }
     if ($salle_id != "") {
         if ($condition == "") {
-            $condition = " where note=$salle_id ";
+            $condition = " where salle_id=$salle_id ";
         } else {
-            $condition = $condition . " and note=$salle_id";
+            $condition = $condition . " and salle_id=$salle_id";
         }
     }
 

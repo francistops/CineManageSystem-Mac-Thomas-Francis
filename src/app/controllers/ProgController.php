@@ -89,11 +89,11 @@ function edit_programmation()
 function remove_programmation(): bool
 {
     if ($_SESSION['is_login'] !== true && !checkRole('admin')) {
-        header('Location: admin.php?action=login');
+        header('Location: programmation.php?action=login');
         die('<h2>Accès Refusé</h2>');
     }
     $id = intval($_GET['id']);
     delete_programmation($id);
-    header('Location: admin.php?action=dashboard');
+    header('Location: programmation.php?action=programmation');
     exit;
 }
